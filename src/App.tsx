@@ -1,13 +1,13 @@
 import './App.css'
-import { Button } from './components/ui/button'
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import Root from './pages/Root';
 
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={ <Root /> } />
+));
 function App() {
-
-
   return (
-    <>
-     <Button>hello</Button>
-    </>
+    <RouterProvider router={ router } />
   )
 }
 
