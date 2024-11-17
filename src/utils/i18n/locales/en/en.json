@@ -1,26 +1,42 @@
 {
-     "blog": "BitBlogs",
-     "home": "Home",
-     "write": "Write",
-    "about": "About us",
-    "signIn": "Sign In",
-    "logIn": {
-        "title": "Log in",
-        "description": "Enter your credentials to access your account",
-        "email": "E-mail",
-        "password": "Password",
-        "forgotPassword": "Forgot password?",
-        "accountQuestion": "Don't have an account?",
-        "signUp": "Sign up"
-    },
-    "signUp": {
-        "title": "Sign up",
-        "description": "Create your account to start blogging",
-        "name": "Name",
-        "email": "E-mail",
-        "password": "Password",
-        "confirmPassword": "Confirm password",
-        "accountQuestion": "Already have an account?",
-        "signIn": "Sign in"
+  "blog": "BitBlogs",
+  "home": "Home",
+  "write": "Write",
+  "about": "About us",
+  "signIn": "Sign In",
+  "homePage": {
+    "cards": {
+      "firstCard": {
+        "title": "The Future of Blockchain Technology",
+        "author": "Jane Smith",
+        "date": "May 18, 2023",
+        "timeToRead": "5 min read",
+        "content": "Blockchain technology is revolutionizing various industries. From finance to supply chain management, its potential applications are vast and growing. ",
+        "badges": {
+          "blockchain": "Blockchain",
+          "technology": "Technology",
+          "future": "Future"
+        }
+      }
     }
+  },
+  "logIn": {
+    "title": "Log in",
+    "description": "Enter your credentials to access your account",
+    "email": "E-mail",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "accountQuestion": "Don't have an account?",
+    "signUp": "Sign up"
+  },
+  "signUp": {
+    "title": "Sign up",
+    "description": "Create your account to start blogging",
+    "name": "Name",
+    "email": "E-mail",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "accountQuestion": "Already have an account?",
+    "signIn": "Sign in"
+  }
 }
