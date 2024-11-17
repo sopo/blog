@@ -3,7 +3,7 @@ import Header from "@/components/ui/header";
 export default function Root() {
 
   return (
-    <div>
+    <div className="bg-white dark:bg-gray-900">
       <Header />
      <Outlet />
 

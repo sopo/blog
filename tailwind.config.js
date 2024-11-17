@@ -21,7 +21,7 @@ module.exports = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
+  				DEFAULT: "#367BF3",
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
@@ -30,7 +30,7 @@ module.exports = {
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
+  				foreground: 'gray'
   			},
   			accent: {
   				DEFAULT: 'hsl(var(--accent))',
@@ -49,7 +49,8 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+		
   		}
   	}
   },

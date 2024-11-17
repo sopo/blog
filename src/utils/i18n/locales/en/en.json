@@ -3,5 +3,14 @@
      "home": "Home",
      "write": "Write",
     "about": "About us",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "logIn": {
+        "title": "Log in",
+        "description": "Enter your credentials to access your account",
+        "email": "E-mail",
+        "password": "Password",
+        "forgotPassword": "Forgot password?",
+        "noAccount": "Don't have an account?",
+        "signUp": "Sign up"
+    }
 }

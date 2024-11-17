@@ -8,7 +8,7 @@ import {
 import { Navigate } from "react-router-dom";
 import Root from "./pages/Root";
 import Home from "./pages/home";
-import SignUp from "./pages/sign-up";
+import SignIn from "./pages/sign-in";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Navigate to="/en"/>} />
       <Route path=":lang" element={<Root />}>
       <Route index element={<Home />} />
-      <Route path="sign-up" element={<SignUp />} />
+      <Route path="sign-up" element={<SignIn />} />
     </Route>
     </Route>
   )
