@@ -26,6 +26,21 @@
         "programming": "პროგრამირება",
         "ai": "ხელოვნური ინტელექტი",
         "machineLearning": "მანქანური სწავლება"
+      }, 
+      "featuredAuthors": {
+        "title": "პოპულარული ავტორები",
+        "aliceJohnson": {
+            "name": "ელის ჯონსონი",
+            "proffesion": "ბლოკჩეინის ენთუზიასტი"
+        },
+        "bobSmith": {
+            "name": "ბობ სმიტი",
+            "proffesion": "ბლოკჩეინის ენთუზიასტი"
+        },
+        "carolWilliams": {
+            "name": "ქეროლ უილიამსი",
+            "proffesion": "ბლოკჩეინის ენთუზიასტი"
+        }
       }
     }
   },

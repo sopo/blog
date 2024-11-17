@@ -26,6 +26,21 @@
         "programming": "Programming",
         "ai": "AI",
         "machineLearning": "Machine Learning"
+      },
+      "featuredAuthors": {
+        "title": "Featured Authors",
+        "aliceJohnson": {
+            "name": "Alice Johnson",
+            "proffesion": "Blockchain Enthusiast"
+        },
+        "bobSmith": {
+            "name": "Bob Smith",
+            "proffesion": "Blockchain Enthusiast"
+        },
+        "carolWilliams": {
+            "name": "Carol Williams",
+            "proffesion": "Blockchain Enthusiast"
+        }
       }
     }
   },
