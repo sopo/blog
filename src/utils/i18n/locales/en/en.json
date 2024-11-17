@@ -1,3 +1,7 @@
 {
-     "blog": "BitBlogs"
+     "blog": "BitBlogs",
+     "home": "Home",
+     "write": "Write",
+    "about": "About us",
+    "signIn": "Sign In"
 }
