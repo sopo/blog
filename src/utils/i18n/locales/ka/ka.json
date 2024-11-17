@@ -17,6 +17,15 @@
           "technology": "ტექნოლოგია",
           "future": "მომავალი"
         }
+      },
+      "popularTags": {
+        "title": "პოპულარული თეგები",
+        "blockchain": "ბლოკჩეინი",
+        "cryptocurrency": "კრიპტო ვალუტა",
+        "technology": "ტექნოლოგიები",
+        "programming": "პროგრამირება",
+        "ai": "ხელოვნური ინტელექტი",
+        "machineLearning": "მანქანური სწავლება"
       }
     }
   },

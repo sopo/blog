@@ -17,6 +17,15 @@
           "technology": "Technology",
           "future": "Future"
         }
+      },
+      "popularTags": {
+        "title": "Popular tags",
+        "blockchain": "Blockchain",
+        "cryptocurrency": "Cryptocurrency",
+        "technology": "Technology",
+        "programming": "Programming",
+        "ai": "AI",
+        "machineLearning": "Machine Learning"
       }
     }
   },

@@ -18,7 +18,7 @@ export default function Home() {
     <Link to="">
     <Card>
       <CardHeader>
-      <img src="https://g-zwkebgiacpe.vusercontent.net/placeholder.svg?height=200&width=400" className="rounded-xl object-cover w-full h-[200px]"/>
+      <img src="https://g-zwkebgiacpe.vusercontent.net/placeholder.svg?height=200&width=400" className="mb-2 rounded-xl object-cover w-full h-[200px]"/>
         <CardTitle>{t("homePage.cards.firstCard.title")}</CardTitle>
         <CardDescription>
             <p><Link to="" className="hover:underline">{t("homePage.cards.firstCard.author")}</Link> • {t("homePage.cards.firstCard.date")} • {t("homePage.cards.firstCard.timeToRead")}</p>
@@ -52,15 +52,15 @@ export default function Home() {
     <aside className="md:w-1/3 space-y-8">
     <Card>
       <CardHeader>
-        <CardTitle className="font-semibold text-md">Popular Tags</CardTitle>
+        <CardTitle className="font-semibold text-md">{t("homePage.cards.popularTags.title")}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">
-      <Link to="" className={badgeVariants({ variant: "default" })}>Badge</Link>
-      <Link to="" className={badgeVariants({ variant: "default" })}>Badge</Link>
-      <Link to="" className={badgeVariants({ variant: "default" })}>Badge</Link>
-      <Link to="" className={badgeVariants({ variant: "default" })}>Badjhkhkjhkhkhkhge</Link>
-      <Link to="" className={badgeVariants({ variant: "default" })}>Badge</Link>
-      <Link to="" className={badgeVariants({ variant: "default" })}>Badge</Link>
+      <Link to="" className={badgeVariants({ variant: "default" })}>{t("homePage.cards.popularTags.blockchain")}</Link>
+      <Link to="" className={badgeVariants({ variant: "default" })}>{t("homePage.cards.popularTags.cryptocurrency")}</Link>
+      <Link to="" className={badgeVariants({ variant: "default" })}>{t("homePage.cards.popularTags.technology")}</Link>
+      <Link to="" className={badgeVariants({ variant: "default" })}>{t("homePage.cards.popularTags.programming")}</Link>
+      <Link to="" className={badgeVariants({ variant: "default" })}>{t("homePage.cards.popularTags.ai")}</Link>
+      <Link to="" className={badgeVariants({ variant: "default" })}>{t("homePage.cards.popularTags.machineLearning")}</Link>
       </CardContent>
     </Card>
     </aside>
