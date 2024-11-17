@@ -1,14 +1,11 @@
-
+import { Outlet } from "react-router-dom";
+import Header from "@/components/ui/header";
 export default function Root() {
 
   return (
     <div>
-      <h1>imroot</h1>
-      <ul>
-        <li>home</li>
-        <li>write</li>
-        <li>about</li>
-      </ul>
+      <Header />
+     <Outlet />
 
     </div>
   );
