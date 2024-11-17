@@ -39,7 +39,7 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center space-x-4">
-          <Link to="sign-up">
+          <Link to="sign-in">
             <Button variant={"default"}>{t("signIn")}</Button>
           </Link>
           <DropdownMenu>

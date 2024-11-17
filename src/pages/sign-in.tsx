@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LabeledInputContainer from "@/components/containers/labeled-input-container";
 import FormContainer from "@/components/containers/form-container";
@@ -11,6 +11,7 @@ import SingleColumnPageContainer from "@/components/containers/single-column-pag
 import CardFooterContainer from "@/components/containers/card-footer-container";
 export default function SignIn() {
   const { t } = useTranslation();
+  const {lang} = useParams()
   return (
     <SingleColumnPageContainer>
 
@@ -48,8 +49,8 @@ export default function SignIn() {
             {t("logIn.forgotPassword")}
           </Link>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            {t("logIn.noAccount")}
-            <Link to="sign-up" className="text-primary hover:underline">
+            {t("logIn.accountQuestion")}
+            <Link to={`/${lang}/sign-up`}  className="text-primary hover:underline">
               {t("logIn.signUp")}
             </Link>
           </p>

@@ -10,7 +10,17 @@
         "email": "ელ. ფოსტა",
         "password": "პაროლი",
         "forgotPassword": "დაგავიწყდა პაროლი?",
-        "noAccount": "არ გაქვს ანგარიში?",
+        "accountQuestion": "არ გაქვს ანგარიში?",
         "signUp": "რეგისტრაცია"
+    },
+    "signUp": {
+        "title": "რეგისტრაცია",
+        "description": "შექმენი ანგარიში",
+        "name": "სახელი",
+        "email": "ელ. ფოსტა",
+        "password": "პაროლი",
+        "confirmPassword": "გაიმეორე პაროლი",
+        "accountQuestion": "უკვე გაქვს ანგარიში?",
+        "signIn": "შესვლა"
     }
 }

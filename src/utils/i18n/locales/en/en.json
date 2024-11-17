@@ -10,7 +10,17 @@
         "email": "E-mail",
         "password": "Password",
         "forgotPassword": "Forgot password?",
-        "noAccount": "Don't have an account?",
+        "accountQuestion": "Don't have an account?",
         "signUp": "Sign up"
+    },
+    "signUp": {
+        "title": "Sign up",
+        "description": "Create your account to start blogging",
+        "name": "Name",
+        "email": "E-mail",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "accountQuestion": "Already have an account?",
+        "signIn": "Sign in"
     }
 }
