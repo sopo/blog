@@ -35,13 +35,13 @@ export default function Header() {
         {/* links */}
         <NavigationMenu className="hidden lg:flex space-x-4">
           <NavigationMenuList className="flex items-center px-4 py-2 space-x-4">
-            <NavigationMenuItem className=" text-gray-600 dark:text-gray-200">
+            <NavigationMenuItem>
               <Link to="/">{t("home")}</Link>
             </NavigationMenuItem>
-            <NavigationMenuItem className=" text-gray-600 dark:text-gray-200">
+            <NavigationMenuItem>
               <Link to="write">{t("write")}</Link>
             </NavigationMenuItem>
-            <NavigationMenuItem className=" text-gray-600 dark:text-gray-200">
+            <NavigationMenuItem>
               <Link to="about">{t("about")}</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -51,12 +51,12 @@ export default function Header() {
         {/* search */}
         <div className="flex items-center space-x-4">
           <DropdownMenu>
-            <DropdownMenuTrigger className=" text-gray-900 dark:text-white">
+            <DropdownMenuTrigger >
               <Button variant="outline" size="icon">
                 <Search className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className=" bg-white dark:bg-gray-800"></DropdownMenuContent>
+            <DropdownMenuContent></DropdownMenuContent>
           </DropdownMenu>
 
           {/* sign in button */}
@@ -66,16 +66,15 @@ export default function Header() {
 
           {/* language icon & dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className=" text-gray-900 dark:text-white ">
+            <DropdownMenuTrigger>
               <Button variant="outline" size="icon">
                 <Earth className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className=" bg-white dark:bg-gray-800">
+            <DropdownMenuContent>
               <DropdownMenuSeparator />
               <NavLink to={"/en"}>
                 <DropdownMenuItem
-                  className=" text-gray-900 dark:text-white"
                   onClick={() => handleLanguageChange("en")}
                 >
                   English
@@ -83,7 +82,6 @@ export default function Header() {
               </NavLink>
               <NavLink to={"/ka"}>
                 <DropdownMenuItem
-                  className=" text-gray-900 dark:text-white"
                   onClick={() => handleLanguageChange("ka")}
                 >
                   ქართული
