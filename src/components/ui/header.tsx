@@ -25,42 +25,50 @@ export default function Header() {
   return (
     <div className="border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        {/* logo */}
         <Link to={`/${lang}`}>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {t("blog")}
           </h2>
         </Link>
+
+        {/* links */}
         <NavigationMenu className="hidden lg:flex space-x-4">
           <NavigationMenuList className="flex items-center px-4 py-2 space-x-4">
-            <NavigationMenuItem className=" text-gray-900 dark:text-white">
+            <NavigationMenuItem className=" text-gray-600 dark:text-gray-200">
               <Link to="/">{t("home")}</Link>
             </NavigationMenuItem>
-            <NavigationMenuItem className=" text-gray-900 dark:text-white">
+            <NavigationMenuItem className=" text-gray-600 dark:text-gray-200">
               <Link to="write">{t("write")}</Link>
             </NavigationMenuItem>
-            <NavigationMenuItem className=" text-gray-900 dark:text-white">
+            <NavigationMenuItem className=" text-gray-600 dark:text-gray-200">
               <Link to="about">{t("about")}</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+
+        {/* left side */}
+        {/* search */}
         <div className="flex items-center space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger className=" text-gray-900 dark:text-white">
-              <Search className=" hover:bg-slate-50 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-gray-800 dark:text-white text" />
+              <Button variant="outline" size="icon">
+                <Search className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className=" bg-white dark:bg-gray-800"></DropdownMenuContent>
           </DropdownMenu>
+
+          {/* sign in button */}
           <Link to="sign-in">
             <Button variant={"default"}>{t("signIn")}</Button>
           </Link>
+
+          {/* language icon & dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className=" text-gray-900 dark:text-white">
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded border-0 shadow hover:bg-slate-50"
-              >
-                <Earth className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-gray-800 dark:text-white text" />
+            <DropdownMenuTrigger className=" text-gray-900 dark:text-white ">
+              <Button variant="outline" size="icon">
+                <Earth className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className=" bg-white dark:bg-gray-800">
@@ -83,6 +91,7 @@ export default function Header() {
               </NavLink>
             </DropdownMenuContent>
           </DropdownMenu>
+          {/* theme */}
           <ModeToggle />
         </div>
       </div>
