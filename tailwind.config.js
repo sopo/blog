@@ -17,6 +17,7 @@ module.exports = {
 			primary: 'rgb(var(--color-primary))',
 			'primary-hover': 'rgb(var(--color-primary-hover))',
 			onPrimary: 'rgb(var(--color-on-primary))',
+			surface: 'rgb(var( --color-surface))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -42,7 +43,7 @@ module.exports = {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
-  			border: 'hsl(var(--border))',
+  			'border-soft': 'rgb(var(--border-soft))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			chart: {
@@ -55,11 +56,6 @@ module.exports = {
 		
 		
   		},
-		//   variants: {
-		// 	extend:{
-		// 		backgroundColor: ['hover']
-		// 	}
-		//   }
   	}
   },
   plugins: [
@@ -92,6 +88,16 @@ module.exports = {
 			fontSize: theme('fontSize.base'),  
 			color: `rgb(var(--color-on-surface-variant))`      
 		  },
+		  '.paragraph-small-primary': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.sm'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  '.paragraph-small-secondary': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.sm'),  
+			color: `rgb(var(--color-on-surface-variant))`      
+		  },
 		  '.title-large': {
 			fontWeight: theme('fontWeight.bold'), 
 			fontSize: theme('fontSize.4xl'),  
@@ -100,6 +106,16 @@ module.exports = {
 		  '.title-medium': {
 			fontWeight: theme('fontWeight.semibold'), 
 			fontSize: theme('fontSize.3xl'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  '.title-small': {
+			fontWeight: theme('fontWeight.semibold'), 
+			fontSize: theme('fontSize.2xl'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  '.title-xsmall': {
+			fontWeight: theme('fontWeight.semibold'), 
+			fontSize: theme('fontSize.lg'),  
 			color: `rgb(var(--color-on-surface))`      
 		  },
 		  
