@@ -18,6 +18,7 @@ module.exports = {
 			'primary-hover': 'rgb(var(--color-primary-hover))',
 			onPrimary: 'rgb(var(--color-on-primary))',
 			surface: 'rgb(var( --color-surface))',
+			"surface-variant": 'rgb(var(--color-surface-variant))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

@@ -5,10 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LabeledInputContainer from "../components/containers/labeled-input-container";
 import FormContainer from "../components/containers/form-container";
-import CardTitleContainer from "../components/containers/card-title-container";
-import CardContainer from "../components/containers/card-container";
+import CardTitleContainer from "../components/containers/card-containers/elevated-card-containers/card-title-container";
+import CardContainer from "../components/containers/card-containers/elevated-card-containers/card-container";
 import SingleColumnPageContainer from "../components/containers/single-column-page-container";
-import CardFooterContainer from "../components/containers/card-footer-container";
+import CardFooterContainer from "../components/containers/card-containers/elevated-card-containers/card-footer-container";
 export default function SignUp() {
     const {lang} = useParams()
   const { t } = useTranslation();
