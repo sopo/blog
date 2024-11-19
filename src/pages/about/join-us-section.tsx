@@ -5,7 +5,7 @@ const JoinUsSection:React.FC = () => {
     return(
         <div className="flex flex-col gap-4 items-center">
             <TextCenterMediumBlock title="join" description="desc"/>
-            <Button>join</Button>
+            <Button variant="default">join</Button>
         </div>
     )
 }
