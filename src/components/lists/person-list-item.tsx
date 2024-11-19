@@ -15,7 +15,7 @@ const PersonListItem:React.FC<PersonListItemProps> = ({name, proffesion, imgSrc}
                     <div className="min-w-0 flex-auto">
                       <p className="text-md/6 font-semibold text-gray-900 dark:text-gray-50">
                         {name}
-                      </p>
+                      </p> 
                       <p className="mt-1 truncate text-sm/5 text-gray-500">
                         {proffesion}
                       </p>

@@ -124,6 +124,7 @@ export default function Home() {
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
               <PersonList>
+                <Link to="author/1">
                 <PersonListItem
                   name={t("homePage.cards.featuredAuthors.aliceJohnson.name")}
                   proffesion={t(
@@ -131,6 +132,8 @@ export default function Home() {
                   )}
                   imgSrc=""
                 />
+                </Link>
+                <Link to="author/1">
                 <PersonListItem
                   name={t("homePage.cards.featuredAuthors.bobSmith.name")}
                   proffesion={t(
@@ -138,6 +141,8 @@ export default function Home() {
                   )}
                   imgSrc=""
                 />
+                </Link>
+                <Link to="author/1">
                 <PersonListItem
                   name={t("homePage.cards.featuredAuthors.carolWilliams.name")}
                   proffesion={t(
@@ -145,7 +150,9 @@ export default function Home() {
                   )}
                   imgSrc=""
                 />
+                  </Link>
               </PersonList>
+            
             </CardContent>
           </Card>
         </aside>
