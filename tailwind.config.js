@@ -12,6 +12,11 @@ module.exports = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			onSurface: "hsl(var(--color-on-surface))",
+			onSurfaceVariant: 'hsl(var(--color-on-surface-variant))',
+			primary: 'rgb(var(--color-primary))',
+			'primary-hover': 'rgb(var(--color-primary-hover))',
+			onPrimary: 'rgb(var(--color-on-primary))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -20,10 +25,7 @@ module.exports = {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
   			},
-  			primary: {
-  				DEFAULT: "#367BF3",
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
+  		
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
@@ -51,9 +53,27 @@ module.exports = {
   				'5': 'hsl(var(--chart-5))'
   			},
 		
-  		}
+		
+  		},
+		  variants: {
+			extend:{
+				backgroundColor: ['hover']
+			}
+		  }
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function({ addComponents}) {
+      addComponents({
+        '.bg-primary': {
+          backgroundColor: `rgb(var(--color-primary))`,
+          '&:hover': {
+            backgroundColor: `rgb(var(--color-primary-hover))`,
+          },
+        },
+      })
+    },
+  ],
 }
 

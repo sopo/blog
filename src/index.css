@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base{
+    :root{
+        /* 900 */
+        --color-on-surface: 210, 50%, 11%; 
+         /* 700 */
+        --color-on-surface-variant: 210, 19%, 26%;
+        /* blue-500 */
+        --color-primary: 37, 99, 235;
+        /* blue-500 */
+        --color-primary-hover: 29,78,216;
+        /* blue-50 */
+        --color-on-primary: 239, 246, 255;
+
+    }
+   
+}
+.dark{
+     /* 50 */
+    --color-on-surface: 210, 67%, 98%;
+      /* 150 */
+      --color-on-surface-variant: 210, 23%, 91%;
+     /* blue-500 */
+      --color-primary: 37, 99, 235;
+       /* blue-50 */
+       --color-on-primary: 239, 246, 255;
+}
