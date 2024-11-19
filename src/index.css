@@ -4,12 +4,12 @@
 @layer base{
     :root{
         /* 900 */
-        --color-on-surface: 210, 50%, 11%; 
+        --color-on-surface: 17,24,39; 
          /* 700 */
-        --color-on-surface-variant: 210, 19%, 26%;
-        /* blue-500 */
+        --color-on-surface-variant: 55,65,81;
+        /* blue-600 */
         --color-primary: 37, 99, 235;
-        /* blue-500 */
+        /* blue-700 */
         --color-primary-hover: 29,78,216;
         /* blue-50 */
         --color-on-primary: 239, 246, 255;
@@ -19,11 +19,13 @@
 }
 .dark{
      /* 50 */
-    --color-on-surface: 210, 67%, 98%;
-      /* 150 */
-      --color-on-surface-variant: 210, 23%, 91%;
-     /* blue-500 */
+    --color-on-surface: 249,250,251;
+      /* 300*/
+      --color-on-surface-variant: 209,213,219;
+     /* blue-700 */
       --color-primary: 37, 99, 235;
+       /* blue-500 */
+       --color-primary-hover: 59,130,246;
        /* blue-50 */
        --color-on-primary: 239, 246, 255;
 }

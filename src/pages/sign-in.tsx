@@ -14,7 +14,6 @@ export default function SignIn() {
   const {lang} = useParams()
   return (
     <SingleColumnPageContainer>
-
       <CardContainer>
         <CardTitleContainer>
           <h1 className="text-2xl font-medium text-gray-900 dark:text-gray-200 text-center">

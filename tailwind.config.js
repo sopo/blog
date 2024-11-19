@@ -12,8 +12,8 @@ module.exports = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-			onSurface: "hsl(var(--color-on-surface))",
-			onSurfaceVariant: 'hsl(var(--color-on-surface-variant))',
+			onSurface: "rgb(var(--color-on-surface))",
+			onSurfaceVariant: 'rgb(var(--color-on-surface-variant))',
 			primary: 'rgb(var(--color-primary))',
 			'primary-hover': 'rgb(var(--color-primary-hover))',
 			onPrimary: 'rgb(var(--color-on-primary))',
@@ -55,16 +55,16 @@ module.exports = {
 		
 		
   		},
-		  variants: {
-			extend:{
-				backgroundColor: ['hover']
-			}
-		  }
+		//   variants: {
+		// 	extend:{
+		// 		backgroundColor: ['hover']
+		// 	}
+		//   }
   	}
   },
   plugins: [
     require("tailwindcss-animate"),
-    function({ addComponents}) {
+    function({ addComponents, theme}) {
       addComponents({
         '.bg-primary': {
           backgroundColor: `rgb(var(--color-primary))`,
@@ -72,6 +72,37 @@ module.exports = {
             backgroundColor: `rgb(var(--color-primary-hover))`,
           },
         },
+		'.paragraph-large-primary': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.lg'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  '.paragraph-large-secondary': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.lg'),  
+			color: `rgb(var(--color-on-surface-variant))`      
+		  },
+		'.paragraph-medium-primary': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.base'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  '.paragraph-medium-secondary': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.base'),  
+			color: `rgb(var(--color-on-surface-variant))`      
+		  },
+		  '.title-large': {
+			fontWeight: theme('fontWeight.bold'), 
+			fontSize: theme('fontSize.4xl'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  '.title-medium': {
+			fontWeight: theme('fontWeight.semibold'), 
+			fontSize: theme('fontSize.3xl'),  
+			color: `rgb(var(--color-on-surface))`      
+		  },
+		  
       })
     },
   ],
