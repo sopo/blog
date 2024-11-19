@@ -21,19 +21,19 @@ const AuthorInfoSection: React.FC = () => {
 
             <div className="flex gap-2">
               <Button variant="outline" size="icon">
-                <Twitter className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
+                <Twitter className="h-[1.2rem] w-[1.2rem] text-onSurfaceVariant" />
               </Button>
               <Button variant="outline" size="icon">
-                <Github className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
+                <Github className="h-[1.2rem] w-[1.2rem] text-onSurfaceVariant" />
               </Button>
             </div>
             <div className="flex gap-4">
               <div className="flex gap-1">
-                <Users className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
+                <Users className="h-[1.2rem] w-[1.2rem] text-onSurfaceVariant" />
                 <p className="paragraph-small-secondary">1234 Followers</p>
               </div>
               <div className="flex gap-1">
-                <Users className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
+                <Users className="h-[1.2rem] w-[1.2rem] text-onSurfaceVariant" />
                 <p className="paragraph-small-secondary">567 following</p>
               </div>
             </div>
