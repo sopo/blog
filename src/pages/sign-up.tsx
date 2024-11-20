@@ -23,15 +23,12 @@ export default function SignUp() {
   })
   const handelSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // const isEmailFilled = !!registerData.email
-    // const isPasswordFilled = !!registerData.password
     if(registerData.email && registerData.password){
       handleRegister(registerData)
-      console.log("register")
+
     }
   
   }
-  console.log("data ", registerData)
   return (
     <SingleColumnPageContainer>
       <CardContainer>
@@ -67,10 +64,6 @@ export default function SignUp() {
               })
             }} type="password" id="password" />
           </LabeledInputContainer>
-          {/* <LabeledInputContainer>
-            <Label>{t("signUp.confirmPassword")}</Label>
-            <Input type="password" id="password" />
-          </LabeledInputContainer> */}
           <Button
            
             variant={"default"}

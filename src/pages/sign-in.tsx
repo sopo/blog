@@ -9,9 +9,31 @@ import CardTitleContainer from "@/components/containers/card-containers/elevated
 import CardContainer from "@/components/containers/card-containers/elevated-card-containers/card-container";
 import SingleColumnPageContainer from "@/components/containers/single-column-page-container";
 import CardFooterContainer from "@/components/containers/card-containers/elevated-card-containers/card-footer-container";
+import { useMutation } from "@tanstack/react-query";
+import { login } from "../supabase/auth"
+import { useState } from "react";
 export default function SignIn() {
   const { t } = useTranslation();
   const {lang} = useParams()
+  const [loginData, setLoginData] = useState({email: "", password: ""})
+  const {mutate: handleLogin} = useMutation({
+    mutationKey: ["login"],
+    mutationFn: login,
+    onSuccess: () => {
+     console.log("success")
+    },
+    onError: (error) => {
+      console.error("Login failed", error); 
+    }
+
+  })
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if(loginData.email && loginData.password){
+      handleLogin(loginData)
+    }
+
+  }
   return (
     <SingleColumnPageContainer>
       <CardContainer>
@@ -24,14 +46,25 @@ export default function SignIn() {
           </p>
         </CardTitleContainer>
 
-        <FormContainer>
+        <FormContainer onSubmit={handleSubmit}>
           <LabeledInputContainer>
             <Label>{t("logIn.email")}</Label>
-            <Input type="email" id="email" placeholder="john@example.com" />
+            <Input value={loginData.email} onChange={(e) => {
+              setLoginData({
+                email: e.target.value,
+                password: loginData.password
+              })
+            }}
+            type="email" id="email" placeholder="john@example.com" />
           </LabeledInputContainer>
           <LabeledInputContainer>
             <Label>{t("logIn.password")}</Label>
-            <Input type="password" id="password" />
+            <Input value={loginData.password} onChange={(e) => {
+              setLoginData({
+                password: e.target.value,
+                email: loginData.email
+              })
+            }} type="password" id="password" />
           </LabeledInputContainer>
           <Button
             variant={"default"}
