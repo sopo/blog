@@ -4,8 +4,10 @@ import { PopularTagsArray } from "@/utils/interfaces/popular-tags";
 
 interface TagBlockProps {
   content: PopularTagsArray;
+  variant: "default" | "secondary" | "destructive" | "outline"
 }
-const TagBlock: React.FC<TagBlockProps> = ({ content }) => {
+
+const TagBlock: React.FC<TagBlockProps> = ({ content, variant }) => {
   return (
     <div className="flex flex-wrap gap-2">
       {content.map((tag, index) => {
@@ -13,7 +15,7 @@ const TagBlock: React.FC<TagBlockProps> = ({ content }) => {
           <Link
             key={index}
             to={tag}
-            className={badgeVariants({ variant: "default" })}
+            className={badgeVariants({variant})}
           >
             {tag}
           </Link>

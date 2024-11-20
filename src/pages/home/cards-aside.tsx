@@ -18,10 +18,10 @@ const CardsAside:React.FC =() =>{
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <TagBlock content={popularTags} />
+            <TagBlock content={popularTags} variant="default" />
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader>
             <CardTitle className="font-semibold text-md">
