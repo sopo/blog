@@ -52,9 +52,9 @@ export default function Header() {
         <div className="flex items-center space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger >
-              <Button variant="outline" size="icon">
+              <div className="p-2 rounded-full cursor-pointer">
                 <Search className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
-              </Button>
+              </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent></DropdownMenuContent>
           </DropdownMenu>
@@ -67,9 +67,9 @@ export default function Header() {
           {/* language icon & dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <Button variant="outline" size="icon">
+              <div className="p-2 rounded-full cursor-pointer">
                 <Earth className="h-[1.2rem] w-[1.2rem] text-gray-800 dark:text-gray-50" />
-              </Button>
+              </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuSeparator />

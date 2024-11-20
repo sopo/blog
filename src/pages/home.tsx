@@ -18,7 +18,7 @@ export default function Home() {
     <div className="px-4 flex-grow">
       <div className="container mx-auto flex flex-col md:flex-row gap-8">
         <section className="md:w-2/3 space-y-8 flex flex-col">
-          <Link to="">
+    
             <Card>
               <CardHeader>
                 <img
@@ -51,9 +51,9 @@ export default function Home() {
                 </Link>
               </CardFooter>
             </Card>
-          </Link>
+  
 
-          <Link to="">
+   
             <Card>
               <CardHeader>
                 <img
@@ -88,7 +88,7 @@ export default function Home() {
                 </Link>
               </CardFooter>
             </Card>
-          </Link>
+    
         </section>
 
         <aside className="md:w-1/3 space-y-8">
