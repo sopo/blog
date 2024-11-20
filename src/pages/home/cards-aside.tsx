@@ -65,22 +65,3 @@ const CardsAside:React.FC =() =>{
     )
 }
 export default CardsAside
-
- {/* <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.blockchain")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.cryptocurrency")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.technology")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.programming")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.ai")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.machineLearning")}
-            </Link> */}
