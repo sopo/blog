@@ -8,7 +8,6 @@ const CardsSection:React.FC = () => {
     const { t } = useTranslation();
     return(
         <section className="col-span-2 sm:col-span-3 lg:col-span-2">
-    
             <Card>
               <CardHeader>
                 <img
@@ -41,8 +40,6 @@ const CardsSection:React.FC = () => {
                 </Link>
               </CardFooter>
             </Card>
-  
-
    
             <Card>
               <CardHeader>

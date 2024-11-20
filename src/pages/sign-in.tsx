@@ -23,6 +23,7 @@ export default function SignIn() {
   const { t } = useTranslation();
   const { lang } = useParams();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState("")
   const { mutate: handleLogin } = useMutation({
     mutationKey: ["login"],
     mutationFn: login,
@@ -31,6 +32,7 @@ export default function SignIn() {
     },
     onError: (error) => {
       console.error("Login failed", error);
+      setErrorMessage(error.message)
     },
   });
   const handleSubmit = (e: React.FormEvent) => {
@@ -78,6 +80,7 @@ export default function SignIn() {
               id="password"
             />
           </LabeledInputContainer>
+          {errorMessage && <p className="paragraph-small-error">{errorMessage}</p> }
           <Button
             variant={"default"}
             className="inline-flex items-center justify-center w-full"
@@ -87,7 +90,6 @@ export default function SignIn() {
         </FormContainer>
         </CardContent>
         <CardFooter className="justify-between">
-             
         <Link
             to="forgot-password"
             className="text-sm text-primary hover:underline"
@@ -101,10 +103,8 @@ export default function SignIn() {
               className="text-primary hover:underline"
             >
               <Trans>logIn.signUp</Trans>
-              
             </Link>
           </p>
-
         </CardFooter>
       </Card>
       </AuthSection>

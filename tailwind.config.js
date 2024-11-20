@@ -99,6 +99,11 @@ module.exports = {
 			fontSize: theme('fontSize.sm'),  
 			color: `rgb(var(--color-on-surface-variant))`      
 		  },
+		  '.paragraph-small-error': {
+			fontWeight: theme('fontWeight.normal'), 
+			fontSize: theme('fontSize.sm'),  
+			color: `rgb(var(--color-error))`      
+		  },
 		  '.title-large': {
 			fontWeight: theme('fontWeight.bold'), 
 			fontSize: theme('fontSize.4xl'),  
