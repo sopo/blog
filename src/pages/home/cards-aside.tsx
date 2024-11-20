@@ -1,12 +1,14 @@
 import PersonList from "@/components/lists/person-list"
 import PersonListItem from "@/components/lists/person-list-item"
-import { badgeVariants } from "@/components/ui/badge"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next";
+import TagBlock from "@/components/ui-blocks/tag-block"
+import { getPopularTags } from "@/utils/static data/popular-tags"
 
 const CardsAside:React.FC =() =>{
     const { t } = useTranslation();
+    const popularTags = getPopularTags(t);
     return(
         <aside className="hidden lg:block col-span-1">
         <Card>
@@ -15,27 +17,11 @@ const CardsAside:React.FC =() =>{
               {t("homePage.cards.popularTags.title")}
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-wrap gap-2">
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.blockchain")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.cryptocurrency")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.technology")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.programming")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.ai")}
-            </Link>
-            <Link to="" className={badgeVariants({ variant: "default" })}>
-              {t("homePage.cards.popularTags.machineLearning")}
-            </Link>
+          <CardContent>
+            <TagBlock content={popularTags} />
           </CardContent>
         </Card>
+        
         <Card>
           <CardHeader>
             <CardTitle className="font-semibold text-md">
@@ -79,3 +65,22 @@ const CardsAside:React.FC =() =>{
     )
 }
 export default CardsAside
+
+ {/* <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.blockchain")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.cryptocurrency")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.technology")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.programming")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.ai")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.machineLearning")}
+            </Link> */}
