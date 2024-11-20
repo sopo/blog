@@ -9,9 +9,29 @@ import CardTitleContainer from "../components/containers/card-containers/elevate
 import CardContainer from "../components/containers/card-containers/elevated-card-containers/card-container";
 import SingleColumnPageContainer from "../components/containers/single-column-page-container";
 import CardFooterContainer from "../components/containers/card-containers/elevated-card-containers/card-footer-container";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { register } from "../supabase/auth"
 export default function SignUp() {
     const {lang} = useParams()
   const { t } = useTranslation();
+
+  const [registerData, setRegisterData] = useState({email: "", password: ""})
+  const {mutate: handleRegister} = useMutation({
+    mutationKey: ["register"],
+    mutationFn: register
+  })
+  const handelSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // const isEmailFilled = !!registerData.email
+    // const isPasswordFilled = !!registerData.password
+    if(registerData.email && registerData.password){
+      handleRegister(registerData)
+      console.log("register")
+    }
+  
+  }
+  console.log("data ", registerData)
   return (
     <SingleColumnPageContainer>
       <CardContainer>
@@ -24,24 +44,35 @@ export default function SignUp() {
           </p>
         </CardTitleContainer>
 
-        <FormContainer>
+        <FormContainer onSubmit={handelSubmit}>
         <LabeledInputContainer>
             <Label>{t("signUp.name")}</Label>
             <Input type="text" id="email" placeholder="John Doe" />
           </LabeledInputContainer>
           <LabeledInputContainer>
             <Label>{t("signUp.email")}</Label>
-            <Input type="email" id="email" placeholder="john@example.com" />
+            <Input value={registerData.email} onChange={(e) => {
+              setRegisterData({
+                email: e.target.value,
+                password: registerData.password
+              })
+            }} type="email" id="email" placeholder="john@example.com" />
           </LabeledInputContainer>
           <LabeledInputContainer>
             <Label>{t("signUp.password")}</Label>
-            <Input type="password" id="password" />
+            <Input value={registerData.password} onChange={(e) => {
+              setRegisterData({
+                email: registerData.email, 
+                password: e.target.value
+              })
+            }} type="password" id="password" />
           </LabeledInputContainer>
-          <LabeledInputContainer>
+          {/* <LabeledInputContainer>
             <Label>{t("signUp.confirmPassword")}</Label>
             <Input type="password" id="password" />
-          </LabeledInputContainer>
+          </LabeledInputContainer> */}
           <Button
+           
             variant={"default"}
             className="inline-flex items-center justify-center w-full">
             {t("signUp.title")}
