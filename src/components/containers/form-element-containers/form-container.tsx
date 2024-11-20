@@ -5,7 +5,7 @@ interface FormContainerProps extends PropsWithChildren {
 
 const FormContainer:React.FC<FormContainerProps> = ({children, onSubmit}) => {
     return (
-        <form onSubmit={onSubmit} className="space-y-4 p-6 pt-0">
+        <form onSubmit={onSubmit} className="space-y-4">
             {children}
         </form>
     )

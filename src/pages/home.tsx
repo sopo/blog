@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -14,6 +14,7 @@ import PersonListItem from "@/components/lists/person-list-item";
 export default function Home() {
   const { t } = useTranslation();
   return (
+  
     <div className="px-4 flex-grow">
       <div className="container mx-auto flex flex-col md:flex-row gap-8">
         <section className="md:w-2/3 space-y-8 flex flex-col">
@@ -59,7 +60,9 @@ export default function Home() {
                   src="https://g-zwkebgiacpe.vusercontent.net/placeholder.svg?height=200&width=400"
                   className="mb-2 rounded-xl object-cover w-full h-[200px]"
                 />
-                <CardTitle>{t("homePage.cards.firstCard.title")}</CardTitle>
+                <CardTitle>
+                  <Trans>homePage.cards.firstCard.title</Trans>
+                  {t("homePage.cards.firstCard.title")}</CardTitle>
                 <CardDescription>
                   <p>
                     <Link to="" className="hover:underline">
@@ -158,5 +161,6 @@ export default function Home() {
         </aside>
       </div>
     </div>
+
   );
 }
