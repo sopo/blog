@@ -1,16 +1,17 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CardsSection from "../home/cards-section";
 
 const TabsSection: React.FC = () => {
   return (
-    <Tabs defaultValue="account" className="w-full">
+    <Tabs defaultValue="articles" className="w-full">
       <TabsList className="w-full">
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
+        <TabsTrigger value="articles">Articles</TabsTrigger>
+        <TabsTrigger value="about">About</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
-        Make changes to your account here.
+      <TabsContent value="articles">
+       <CardsSection />
       </TabsContent>
-      <TabsContent value="password">Change your password here.</TabsContent>
+      <TabsContent value="about">Change your password here.</TabsContent>
     </Tabs>
   );
 };

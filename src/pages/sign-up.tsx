@@ -20,7 +20,6 @@ import AuthSection from "@/components/containers/section-containers/auth-section
 export default function SignUp() {
   const { lang } = useParams();
   const { t } = useTranslation();
-
   const [registerData, setRegisterData] = useState({ email: "", password: "" });
   const { mutate: handleRegister } = useMutation({
     mutationKey: ["register"],
@@ -82,7 +81,7 @@ export default function SignUp() {
         </FormContainer>
         </CardContent>
         <CardFooter>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="paragraph-small-secondary">
             {t("signUp.accountQuestion")}
             <Link
               to={`/${lang}/sign-in`}
