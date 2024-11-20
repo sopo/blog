@@ -1,0 +1,81 @@
+import PersonList from "@/components/lists/person-list"
+import PersonListItem from "@/components/lists/person-list-item"
+import { badgeVariants } from "@/components/ui/badge"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next";
+
+const CardsAside:React.FC =() =>{
+    const { t } = useTranslation();
+    return(
+        <aside className="hidden lg:block col-span-1">
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-semibold text-md">
+              {t("homePage.cards.popularTags.title")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.blockchain")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.cryptocurrency")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.technology")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.programming")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.ai")}
+            </Link>
+            <Link to="" className={badgeVariants({ variant: "default" })}>
+              {t("homePage.cards.popularTags.machineLearning")}
+            </Link>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-semibold text-md">
+              {t("homePage.cards.featuredAuthors.title")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            <PersonList>
+              <Link to="author/1">
+              <PersonListItem
+                name={t("homePage.cards.featuredAuthors.aliceJohnson.name")}
+                proffesion={t(
+                  "homePage.cards.featuredAuthors.aliceJohnson.proffesion"
+                )}
+                imgSrc=""
+              />
+              </Link>
+              <Link to="author/1">
+              <PersonListItem
+                name={t("homePage.cards.featuredAuthors.bobSmith.name")}
+                proffesion={t(
+                  "homePage.cards.featuredAuthors.bobSmith.proffesion"
+                )}
+                imgSrc=""
+              />
+              </Link>
+              <Link to="author/1">
+              <PersonListItem
+                name={t("homePage.cards.featuredAuthors.carolWilliams.name")}
+                proffesion={t(
+                  "homePage.cards.featuredAuthors.carolWilliams.proffesion"
+                )}
+                imgSrc=""
+              />
+                </Link>
+            </PersonList>
+          
+          </CardContent>
+        </Card>
+      </aside>
+    )
+}
+export default CardsAside

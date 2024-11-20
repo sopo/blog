@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Root from "./pages/Root";
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 import About from "./pages/about/about";
