@@ -1,9 +1,9 @@
 import ContainerGridCol3 from "@/components/containers/grid/container-grid-c-3";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { PropsWithChildren } from "react";
-
+import { ReactNode } from "react";
 interface FeatureCardsProps {
-  content: { title: string; description: string }[];
+  content: { icon:ReactNode, title: string; description: string }[];
 }
 const FeatureCards: React.FC<PropsWithChildren<FeatureCardsProps>> = ({
   children,
@@ -16,7 +16,7 @@ const FeatureCards: React.FC<PropsWithChildren<FeatureCardsProps>> = ({
         return (
           <Card>
             <CardHeader>
-              <CardTitle>Icon</CardTitle>
+              <CardTitle className="text-primary">{card.icon}</CardTitle>
             </CardHeader>
             <CardContent>
               <h4 className="title-xsmall">{card.title}</h4>

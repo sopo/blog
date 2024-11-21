@@ -5,8 +5,8 @@ const OurMissionSection:React.FC = () => {
     return(
         <ContainerGridCol2>
         <TextRightMediumBlock
-          title="About us"
-          description="Empowering tech enthusiasts to share knowledge and inspire innovation."
+          title="Our mission"
+          description="At bitBlogs, we believe in the power of shared knowledge. Our mission is to create a platform where tech enthusiasts, developers, and innovators can come together to share ideas, learn from each other, and push the boundaries of what's possible in the world of technology."
         />
         <img
           src="https://g-zwkebgiacpe.vusercontent.net/placeholder.svg?"
