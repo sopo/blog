@@ -20,7 +20,9 @@
     --color-surface-variant: 243,244,246;
     /* border */
     /*100 */
-    --border-soft:243,244,246;
+    --border-softer:243,244,246;
+    /* 200 */
+    --border-soft: 229,231,235;
       /* error */
     /*700 */
     --color-error: 185,28,28;
@@ -46,7 +48,9 @@
     --color-surface-variant: 55,65,81;
    /* border */
     /*800 */
-    --border-soft:  31,41,55;
+    --border-softer:  31,41,55;
+    /* 700 */
+    --border-soft: 55,65,81;
           /* error */
     /*400 */
     --color-error: 248,113,113;
