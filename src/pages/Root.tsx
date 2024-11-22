@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "@/components/ui/header";
+import Header from "@/components/ui-blocks/header/header";
 import Footer from "@/components/ui-blocks/footer";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";

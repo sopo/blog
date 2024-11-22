@@ -1,4 +1,4 @@
-import Avatar from "./avatar"
+
 
 const Profile:React.FC = () => {
 
@@ -8,7 +8,7 @@ const Profile:React.FC = () => {
     return(
         <div>
             profile
-            <Avatar />
+
         </div>
     )
 }
