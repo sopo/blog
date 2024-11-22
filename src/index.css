@@ -18,6 +18,8 @@
     --color-surface: 255, 255, 255;
      /*level -1 100 */
     --color-surface-variant: 243,244,246;
+      /*level -2 200 */
+      --color-surface-hover: 229,231,235;
     /* border */
     /*100 */
     --border-softer:243,244,246;
@@ -46,6 +48,8 @@
   --color-surface: 31, 41, 55;
     /*level -1 700 */
     --color-surface-variant: 55,65,81;
+      /*level -2 200 */
+      --color-surface-hover: 75,85,99;
    /* border */
     /*800 */
     --border-softer:  31,41,55;

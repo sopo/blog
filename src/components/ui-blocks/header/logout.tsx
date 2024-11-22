@@ -16,7 +16,7 @@ const Logout:React.FC = () => {
       }, [user]); 
     
     return(
-        <Button variant={"default"} onClick={() => handleLogout()}>Log out</Button>
+        <Button variant={"secondary"} className="inline-flex flex-grow m-4" onClick={() => handleLogout()}>Log out</Button>
       
     )
 }
