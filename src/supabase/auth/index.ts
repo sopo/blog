@@ -26,3 +26,7 @@ export const login = async ({ email, password }: AuthProps) => {
     // console.log('Login successful, user data:', data);
     return data;
   };
+
+  export const logout = () => {
+    return supabase.auth.signOut()
+  }

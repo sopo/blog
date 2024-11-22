@@ -13,6 +13,10 @@ import SignUp from "./pages/sign-up";
 import About from "./pages/about/about";
 import Author from "./pages/author/author";
 import Profile from "./pages/profile/profile";
+import { useState, useEffect } from "react";
+import { supabase } from "./supabase";
+import { Session as SupabaseSession } from "@supabase/supabase-js";
+import AuthGuard from "./components/guards/auth";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -22,7 +26,9 @@ const router = createBrowserRouter(
         <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
+        <Route element={<AuthGuard />}>
         <Route path="profile" element={<Profile />} />
+        </Route>
         <Route path="author/:id" element={<Author />} />
       </Route>
     </Route>
@@ -31,6 +37,22 @@ const router = createBrowserRouter(
 
 );
 function App() {
+  
+  const [session, setSession] = useState<SupabaseSession | null>(null);(null)
+
+    useEffect(() => {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        setSession(session)
+      })
+
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session)
+      })
+
+      return () => subscription.unsubscribe()
+    }, [])
   return <RouterProvider router={router} />;
 }
 

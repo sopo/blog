@@ -5,7 +5,9 @@ import Searchbar from "./search";
 import User from "./user";
 import LangToggle from "./lang-toggle";
 import Screen2Xl from "@/components/containers/page-containers/screen-2xl";
+import Logout from './logout'
 export default function Header() {
+  
   return (
     <div className="border-b border-border-soft">
       <Screen2Xl>
@@ -17,6 +19,7 @@ export default function Header() {
             <User />
             <LangToggle />
             <ModeToggle />
+            <Logout />
           </div>
         </div>
       </Screen2Xl>

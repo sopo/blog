@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
 import LabeledInputContainer from "@/components/containers/form-element-containers/labeled-input-container";
 import FormContainer from "@/components/containers/form-element-containers/form-container";
@@ -24,10 +24,12 @@ export default function SignIn() {
   const { lang } = useParams();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("")
+  const navigate=useNavigate()
   const { mutate: handleLogin } = useMutation({
     mutationKey: ["login"],
     mutationFn: login,
     onSuccess: () => {
+      navigate(`/${lang}/profile`)
       console.log("success");
     },
     onError: (error) => {
