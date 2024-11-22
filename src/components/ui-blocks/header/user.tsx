@@ -2,7 +2,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -11,10 +10,9 @@ const User: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>SOFO</DropdownMenuTrigger>
-      <DropdownMenuContent className="flex flex-col w-60">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuContent className="flex flex-col w-80">
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>My profile</DropdownMenuItem>
         <Logout/>
       </DropdownMenuContent>
     </DropdownMenu>
