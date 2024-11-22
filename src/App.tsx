@@ -12,6 +12,7 @@ import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 import About from "./pages/about/about";
 import Author from "./pages/author/author";
+import Profile from "./pages/profile/profile";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="author/:id" element={<Author />} />
       </Route>
     </Route>
