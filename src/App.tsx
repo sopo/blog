@@ -13,10 +13,11 @@ import SignUp from "./pages/sign-up";
 import About from "./pages/about/about";
 import Author from "./pages/author/author";
 import Profile from "./pages/profile/profile";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { supabase } from "./supabase";
-import { Session as SupabaseSession } from "@supabase/supabase-js";
 import AuthGuard from "./components/guards/auth";
+import { useSetAtom } from "jotai";
+import { UserAtom } from "./store/auth";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -37,22 +38,22 @@ const router = createBrowserRouter(
 
 );
 function App() {
-  
-  const [session, setSession] = useState<SupabaseSession | null>(null);(null)
+  const setUser = useSetAtom(UserAtom)
+ 
 
     useEffect(() => {
       supabase.auth.getSession().then(({ data: { session } }) => {
-        setSession(session)
+        setUser(session)
       })
 
       const {
         data: { subscription },
       } = supabase.auth.onAuthStateChange((_event, session) => {
-        setSession(session)
+        setUser(session)
       })
 
       return () => subscription.unsubscribe()
-    }, [])
+    }, [setUser])
   return <RouterProvider router={router} />;
 }
 
