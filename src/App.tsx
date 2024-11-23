@@ -13,7 +13,7 @@ import SignUp from "./pages/sign-up";
 import About from "./pages/about/about";
 import Author from "./pages/author/author";
 import Profile from "./pages/profile/profile";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import AuthGuard from "./components/guards/auth";
 import { useSetAtom } from "jotai";
@@ -39,11 +39,12 @@ const router = createBrowserRouter(
 );
 function App() {
   const setUser = useSetAtom(UserAtom)
- 
+  const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       supabase.auth.getSession().then(({ data: { session } }) => {
         setUser(session)
+        setLoading(false);
       })
 
       const {
@@ -54,6 +55,9 @@ function App() {
 
       return () => subscription.unsubscribe()
     }, [setUser])
+    if (loading) {
+      return <div>Loading...</div>; 
+    }
   return <RouterProvider router={router} />;
 }
 

@@ -31,10 +31,13 @@ const EditProfile:React.FC = () => {
               id: user.user.id, 
             });
             console.log("User info saved!");
+            console.log("new user ", user)
           } else {
             console.error("User ID is missing");
+            
           }
     }
+    console.log("old user ", user)
     return(
         <AuthSection>
         <Card>
