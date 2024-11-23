@@ -29,8 +29,7 @@ export default function SignIn() {
     mutationKey: ["login"],
     mutationFn: login,
     onSuccess: () => {
-
-      navigate(`/${lang}/profile`)
+      navigate(`/${lang}`)
     },
     onError: (error) => {
       console.error("Login failed", error);

@@ -28,36 +28,34 @@ const router = createBrowserRouter(
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
         <Route element={<AuthGuard />}>
-        <Route path="profile" element={<Profile />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="author/:id" element={<Author />} />
       </Route>
     </Route>
-    
-  ),
-
+  )
 );
 function App() {
-  const setUser = useSetAtom(UserAtom)
+  const setUser = useSetAtom(UserAtom);
   const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-      supabase.auth.getSession().then(({ data: { session } }) => {
-        setUser(session)
-        setLoading(false);
-      })
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session);
+      setLoading(false);
+    });
 
-      const {
-        data: { subscription },
-      } = supabase.auth.onAuthStateChange((_event, session) => {
-        setUser(session)
-      })
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session);
+    });
 
-      return () => subscription.unsubscribe()
-    }, [setUser])
-    if (loading) {
-      return <div>Loading...</div>; 
-    }
+    return () => subscription.unsubscribe();
+  }, [setUser]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return <RouterProvider router={router} />;
 }
 
