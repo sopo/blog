@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useAtomValue } from "jotai";
 import { UserAtom } from "@/store/auth";
 import { editProfile } from "@/supabase/edit-profile";
+import Success from "@/components/ui-blocks/success";
 const EditProfile:React.FC = () => {
     const user = useAtomValue(UserAtom)
     const [data, setData] = useState({
