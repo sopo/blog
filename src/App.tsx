@@ -15,9 +15,11 @@ import Author from "./pages/author/author";
 import Profile from "./pages/profile/profile";
 import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
-import AuthGuard from "./components/guards/auth";
+import GuestGuard from "./components/guards/guest-guard";
+import LoggedInGuard from "./components/guards/logged-in-guard";
 import { useSetAtom } from "jotai";
 import { UserAtom } from "./store/auth";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -25,9 +27,11 @@ const router = createBrowserRouter(
       <Route path=":lang" element={<Root />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route element={<LoggedInGuard />} >
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
-        <Route element={<AuthGuard />}>
+        </Route>
+        <Route element={<GuestGuard />}>
           <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="author/:id" element={<Author />} />
