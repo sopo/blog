@@ -14,6 +14,7 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         onSurface: "rgb(var(--color-on-surface))",
         onSurfaceVariant: "rgb(var(--color-on-surface-variant))",
+		'on-surface-tertiary': "rgb(var(--color-on-surface-tertiary))",
         primary: "rgb(var(--color-primary))",
         "primary-hover": "rgb(var(--color-primary-hover))",
         onPrimary: "rgb(var(--color-on-primary))",

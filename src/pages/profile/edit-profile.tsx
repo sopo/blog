@@ -7,10 +7,12 @@ import { Card, CardHeader, CardContent,  } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAtomValue } from "jotai";
 import { UserAtom } from "@/store/auth";
 import { editProfile } from "@/supabase/edit-profile";
+import { supabase } from "@/supabase";
+
 const EditProfile:React.FC = () => {
     const user = useAtomValue(UserAtom)
     const [data, setData] = useState({
@@ -19,6 +21,30 @@ const EditProfile:React.FC = () => {
         avatar_url: "",
         phone_number: ""
     })
+    useEffect(() => {
+      const userId = user? user.user.id : "";
+      const fetchUser = async () => {
+        const {data, error} = await supabase
+        .from("profiles")
+        .select()
+        .eq('id', userId)
+        .single();
+        if(error){
+          console.log(error.message)
+        }
+        if(data){
+          setData({
+            full_name_ka: data.full_name_ka || "Georgian name",
+            full_name_en: data.full_name_en || "english name", 
+            avatar_url: data.avatar_url || "www.example.com",
+            phone_number: data.phone_number || "+00 00 00 00"
+          });
+          console.log("use data ",data.full_name_ka )
+        }
+      }
+      fetchUser()
+    }, [])
+
     const { mutate: handleChangeData } = useMutation({
         mutationKey: ["user-personal-info"],
         mutationFn: editProfile,
@@ -42,6 +68,7 @@ const EditProfile:React.FC = () => {
           </CardHeader>
           <CardContent>
           <FormContainer onSubmit={handelSubmit}>
+            <p>data </p>
             <LabeledInputContainer>
               <Label>Georgian name</Label>
               <Input
@@ -56,7 +83,7 @@ const EditProfile:React.FC = () => {
                 }}
                 type="text"
                 id="fullNameKa"
-                placeholder="Name"
+                placeholder={data.full_name_ka}
               />
             </LabeledInputContainer>
             <LabeledInputContainer>
@@ -73,7 +100,7 @@ const EditProfile:React.FC = () => {
                 }}
                 type="text"
                 id="fullNameEn"
-                placeholder="Name"
+                placeholder={data.full_name_en}
               />
             </LabeledInputContainer>
             <LabeledInputContainer>
@@ -90,7 +117,7 @@ const EditProfile:React.FC = () => {
                 }}
                 type="text"
                 id="phoneNumber"
-                placeholder="Phone number"
+                placeholder={data.phone_number}
               />
             </LabeledInputContainer>
             <LabeledInputContainer>
@@ -107,7 +134,7 @@ const EditProfile:React.FC = () => {
                 }}
                 type="text"
                 id="avatarUrl"
-                placeholder="www.example.com"
+                placeholder={data.avatar_url}
               />
             </LabeledInputContainer>
             <Button
