@@ -75,7 +75,6 @@ const EditProfile:React.FC = () => {
           </CardHeader>
           <CardContent>
           <FormContainer onSubmit={handelSubmit}>
-            <p>data </p>
             <LabeledInputContainer>
               <Label>Georgian name</Label>
               <Input
