@@ -8,13 +8,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { useAtomValue } from "jotai";
-import { UserAtom } from "@/store/auth";
+import { useAtomValue, useSetAtom } from "jotai";
+import { ProfileAtom, UserAtom } from "@/store/auth";
 import { editProfile } from "@/supabase/edit-profile";
 import { supabase } from "@/supabase";
 
 const EditProfile:React.FC = () => {
     const user = useAtomValue(UserAtom)
+    const setProfile = useSetAtom(ProfileAtom)
     const [data, setData] = useState({
         full_name_ka: "",
         full_name_en: "",
@@ -39,6 +40,10 @@ const EditProfile:React.FC = () => {
             avatar_url: data.avatar_url || "www.example.com",
             phone_number: data.phone_number || "+00 00 00 00"
           });
+          setProfile({
+            ...data,
+
+          })
         }
       }
       fetchUser()
@@ -58,7 +63,10 @@ const EditProfile:React.FC = () => {
           } else {
             console.error("User ID is missing");
           }
+          setProfile({...data})
     }
+ 
+  
     return(
         <AuthSection>
         <Card>
