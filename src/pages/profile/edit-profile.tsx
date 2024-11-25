@@ -39,12 +39,11 @@ const EditProfile:React.FC = () => {
             avatar_url: data.avatar_url || "www.example.com",
             phone_number: data.phone_number || "+00 00 00 00"
           });
-          console.log("use data ",data.full_name_ka )
         }
       }
       fetchUser()
     }, [])
-
+    
     const { mutate: handleChangeData } = useMutation({
         mutationKey: ["user-personal-info"],
         mutationFn: editProfile,

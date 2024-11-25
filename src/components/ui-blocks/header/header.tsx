@@ -7,10 +7,13 @@ import LangToggle from "./lang-toggle";
 import Screen2Xl from "@/components/containers/page-containers/screen-2xl";
 
 import { useAtomValue } from "jotai";
-import { UserAtom } from "@/store/auth";
+import { ProfileAtom, UserAtom } from "@/store/auth";
 import User from "./user"
 export default function Header() {
   const user = useAtomValue(UserAtom)
+  const loggedUser = useAtomValue(ProfileAtom)
+  console.log("loggedin ", loggedUser)
+  const customAvatar = loggedUser?.avatar_url
   return (
     <div className="border-b border-border-soft">
       <Screen2Xl>
@@ -19,7 +22,8 @@ export default function Header() {
           <NavMenu />
           <div className="flex items-center space-x-4">
             <Searchbar />
-            {user ? <User />: <SignIn />}
+            {user ? <User avatar_url={customAvatar}/>: <SignIn />}
+           
             <LangToggle />
             <ModeToggle />
            

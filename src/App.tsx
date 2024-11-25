@@ -17,8 +17,9 @@ import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import GuestGuard from "./components/guards/guest-guard";
 import LoggedInGuard from "./components/guards/logged-in-guard";
-import { useSetAtom } from "jotai";
-import { UserAtom } from "./store/auth";
+import { useAtomValue, useSetAtom } from "jotai";
+import { UserAtom, ProfileAtom } from "./store/auth";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,13 +42,15 @@ const router = createBrowserRouter(
 );
 function App() {
   const setUser = useSetAtom(UserAtom);
+  const user= useAtomValue(UserAtom)
+  const setProfile = useSetAtom(ProfileAtom)
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session);
       setLoading(false);
     });
+    
 
     const {
       data: { subscription },
@@ -57,6 +60,32 @@ function App() {
 
     return () => subscription.unsubscribe();
   }, [setUser]);
+
+  useEffect(() => {
+    const userId = user?.user.id;
+  
+    const fetchUser = async () => {
+      if (!userId) {
+        return;
+      }
+  
+      try {
+        const { data, error } = await supabase
+          .from("profiles")
+          .select()
+          .eq("id", userId)
+          .single();
+  
+        if (error) throw error;
+        setProfile(data);
+      } catch (error) {
+        console.error("Error fetching profile");
+      }
+    };
+  
+    fetchUser();
+  }, [user, setProfile]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
