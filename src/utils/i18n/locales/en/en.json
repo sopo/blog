@@ -66,6 +66,11 @@
     "password": "Password",
     "confirmPassword": "Confirm password",
     "accountQuestion": "Already have an account?",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "errors": {
+      "emptyEmailError": "Please fill email",
+      "emptyPasswordError": "Please fill password",
+      "insufficientPasswordError": "Password should be at least 4 characters"
+    }
   }
 }

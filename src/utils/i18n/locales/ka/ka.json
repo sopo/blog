@@ -66,6 +66,11 @@
     "password": "პაროლი",
     "confirmPassword": "გაიმეორე პაროლი",
     "accountQuestion": "უკვე გაქვს ანგარიში?",
-    "signIn": "შესვლა"
+    "signIn": "შესვლა",
+    "errors": {
+      "emptyEmailError": "ელ. ფოსტის მითითება სავალდებულოა",
+      "emptyPasswordError": "პაროლის მითითება სავალდებულოა",
+      "insufficientPasswordError": "პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან"
+    }
   }
 }
