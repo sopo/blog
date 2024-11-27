@@ -33,15 +33,18 @@ export default function SignUp() {
     mutationKey: ["register"],
     mutationFn: registerUser,
   });
-
-  const email = register("email", { required: t("signUp.errors.emptyEmailError") })
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const email = register("email", { required: t("signUp.errors.emptyEmailError"), pattern: {
+    value: emailPattern,
+    message: t("signUp.errors.invalidEmailError")
+  } })
   const password = register("password", {
     required: t("signUp.errors.emptyPasswordError"), minLength: {
       value: 4,
       message: t("signUp.errors.insufficientPasswordError")
     }
   })
-
+  
   return (
     <AuthSection>
       <Card>

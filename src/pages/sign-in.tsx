@@ -41,8 +41,11 @@ export default function SignIn() {
       console.error("Login failed", error);
     },
   });
-
-  const email = register("email", { required: t("logIn.errors.emptyEmailError") });
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const email = register("email", { required: t("logIn.errors.emptyEmailError"),  pattern: {
+    value: emailPattern,
+    message: t("logIn.errors.invalidEmailError")
+  } });
   const password = register("password", {
     required: t("logIn.errors.emptyPasswordError"), minLength: {
       value: 4,

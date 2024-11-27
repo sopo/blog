@@ -53,8 +53,9 @@
     "accountQuestion": "Don't have an account?",
     "signUp": "Sign up",
     "errors": {
-      "emptyEmailError": "Please fill email",
-      "emptyPasswordError": "Please fill password",
+      "emptyEmailError": "Please fill out email",
+      "invalidEmailError": "Please enter a valid email address",
+      "emptyPasswordError": "Please fill out password",
       "insufficientPasswordError": "Password should be at least 4 characters"
     }
   },
@@ -69,6 +70,7 @@
     "signIn": "Sign in",
     "errors": {
       "emptyEmailError": "Please fill email",
+      "invalidEmailError": "Please enter a valid email address",
       "emptyPasswordError": "Please fill password",
       "insufficientPasswordError": "Password should be at least 4 characters"
     }

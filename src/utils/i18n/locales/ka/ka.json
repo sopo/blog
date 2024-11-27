@@ -54,6 +54,7 @@
     "signUp": "რეგისტრაცია",
     "errors": {
       "emptyEmailError": "ელ. ფოსტის მითითება სავალდებულოა",
+      "invalidEmailError": "გთხოვთ ჩაწეროთ სწორი ელ. ფოსტის მისამართი",
       "emptyPasswordError": "პაროლის მითითება სავალდებულოა",
       "insufficientPasswordError": "პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან"
     }
@@ -69,6 +70,7 @@
     "signIn": "შესვლა",
     "errors": {
       "emptyEmailError": "ელ. ფოსტის მითითება სავალდებულოა",
+      "invalidEmailError": "გთხოვთ ჩაწეროთ სწორი ელ. ფოსტის მისამართი",
       "emptyPasswordError": "პაროლის მითითება სავალდებულოა",
       "insufficientPasswordError": "პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან"
     }
