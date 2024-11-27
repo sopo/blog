@@ -3,7 +3,7 @@ import LabeledInputContainer from "@/components/containers/form-element-containe
 import AuthSection from "@/components/containers/section-containers/auth-section";
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent,  } from "@/components/ui/card";
+import { Card, CardHeader, CardContent, } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useMutation } from "@tanstack/react-query";
@@ -12,132 +12,138 @@ import { useAtomValue, useSetAtom } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import { editProfile } from "@/supabase/edit-profile";
 import { supabase } from "@/supabase";
+import { useForm } from "react-hook-form";
 
-const EditProfile:React.FC = () => {
-    const user = useAtomValue(UserAtom)
-    const setProfile = useSetAtom(ProfileAtom)
-    const [data, setData] = useState({
-        full_name_ka: "",
-        full_name_en: "",
-        avatar_url: "",
-        phone_number: ""
-    })
-    useEffect(() => {
-      const userId = user? user.user.id : "";
-      const fetchUser = async () => {
-        const {data, error} = await supabase
+import { useTranslation } from "react-i18next";
+type FormFields = {
+  id: string,
+  full_name_ka: string,
+  full_name_en: string,
+  avatar_url: string,
+  phone_number: string
+
+}
+const EditProfile: React.FC = () => {
+  const { t } = useTranslation();
+
+  const { register, handleSubmit, formState: { errors } } = useForm<FormFields>({
+    defaultValues: {
+      full_name_ka: "",
+      full_name_en: "",
+      avatar_url: "",
+      phone_number: ""
+    }
+  })
+  const user = useAtomValue(UserAtom)
+  const setProfile = useSetAtom(ProfileAtom)
+  const [data, setData] = useState({
+    full_name_ka: "",
+    full_name_en: "",
+    avatar_url: "",
+    phone_number: ""
+  })
+  useEffect(() => {
+    const userId = user ? user.user.id : "";
+    const fetchUser = async () => {
+      const { data, error } = await supabase
         .from("profiles")
         .select()
         .eq('id', userId)
         .single();
-        if(error){
-          console.log(error.message)
-        }
-        if(data){
-          setData({
-            full_name_ka: data.full_name_ka || "Georgian name",
-            full_name_en: data.full_name_en || "english name", 
-            avatar_url: data.avatar_url || "www.example.com",
-            phone_number: data.phone_number || "+00 00 00 00"
-          });
-          setProfile({
-            ...data,
-
-          })
-        }
+      if (error) {
+        console.log(error.message)
       }
-      fetchUser()
-    }, [])
-    
-    const { mutate: handleChangeData } = useMutation({
-        mutationKey: ["user-personal-info"],
-        mutationFn: editProfile,
-      });
-    const handelSubmit = (event: React.FormEvent) => {
-        event.preventDefault()
-        if (user?.user.id) {
-            handleChangeData({
-              ...data,
-              id: user.user.id, 
-            });
-          } else {
-            console.error("User ID is missing");
-          }
-          setProfile({...data})
+      if (data) {
+        setData({
+          full_name_ka: data.full_name_ka || "Georgian name",
+          full_name_en: data.full_name_en || "english name",
+          avatar_url: data.avatar_url || "www.example.com",
+          phone_number: data.phone_number || "+00 00 00 00"
+        });
+        setProfile({
+          ...data,
+
+        })
+      }
     }
- 
-  
-    return(
-        <AuthSection>
-        <Card>
-          <CardHeader>
-          <TextCenterSmallBlock title="Edit profile" description=""/>
-          </CardHeader>
-          <CardContent>
-          <FormContainer onSubmit={handelSubmit}>
+    fetchUser()
+  }, [])
+
+  const { mutate: handleChangeData } = useMutation({
+    mutationKey: ["user-personal-info"],
+    mutationFn: editProfile,
+  });
+
+  const full_name_ka = register("full_name_ka", {
+    maxLength: {
+      value: 10,
+      message: t("editProfile.errors.nameError")
+    }
+  });
+  const full_name_en = register("full_name_en", {
+    maxLength: {
+      value: 10,
+      message: t("editProfile.errors.nameError")
+    }
+  });
+  const avatar_url = register("avatar_url");
+  const phone_number = register("phone_number", {
+    maxLength: {
+      value: 10,
+      message: t("editProfile.errors.phoneError")
+    }
+  });
+
+
+  return (
+    <AuthSection>
+      <Card>
+        <CardHeader>
+          <TextCenterSmallBlock title="Edit profile" description="" />
+        </CardHeader>
+        <CardContent>
+
+          <FormContainer onSubmit={handleSubmit((data) => {
+            if (user?.user.id) {
+              const formData = { ...data, id: user.user.id }
+              handleChangeData(formData)
+            }
+
+          })}>
             <LabeledInputContainer>
               <Label>Georgian name</Label>
               <Input
-                value={data.full_name_ka}
-                onChange={(e) => {
-                  setData({
-                    full_name_ka: e.target.value,
-                    full_name_en: data.full_name_en,
-                    avatar_url: data.avatar_url,
-                    phone_number: data.phone_number
-                  });
-                }}
+                {...full_name_ka}
                 type="text"
                 id="fullNameKa"
                 placeholder={data.full_name_ka}
               />
+              <p className="paragraph-small-error">{errors.full_name_ka?.message}</p>
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>English name</Label>
               <Input
-                value={data.full_name_en}
-                onChange={(e) => {
-                  setData({
-                    full_name_ka: data.full_name_ka,
-                    full_name_en: e.target.value,
-                    avatar_url: data.avatar_url,
-                    phone_number: data.phone_number
-                  });
-                }}
+                {...full_name_en}
                 type="text"
                 id="fullNameEn"
                 placeholder={data.full_name_en}
               />
+              <p className="paragraph-small-error">{errors.full_name_en?.message}</p>
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>Phone number</Label>
               <Input
-                value={data.phone_number}
-                onChange={(e) => {
-                  setData({
-                    full_name_ka: data.full_name_ka,
-                    full_name_en: data.full_name_en,
-                    avatar_url: data.avatar_url,
-                    phone_number:e.target.value
-                  });
-                }}
+                {...phone_number}
                 type="text"
                 id="phoneNumber"
                 placeholder={data.phone_number}
               />
+              <p className="paragraph-small-error">{errors.phone_number?.message}</p>
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>Profile picture link</Label>
               <Input
-                value={data.avatar_url}
-                onChange={(e) => {
-                  setData({
-                    full_name_ka: data.full_name_ka,
-                    full_name_en: data.full_name_en,
-                    avatar_url: e.target.value,
-                    phone_number: data.phone_number
-                  });
-                }}
+                {...avatar_url}
                 type="text"
                 id="avatarUrl"
                 placeholder={data.avatar_url}
@@ -150,10 +156,10 @@ const EditProfile:React.FC = () => {
               save
             </Button>
           </FormContainer>
-          </CardContent>
-   
-        </Card>
-        </AuthSection>
-    )
+        </CardContent>
+
+      </Card>
+    </AuthSection>
+  )
 }
 export default EditProfile

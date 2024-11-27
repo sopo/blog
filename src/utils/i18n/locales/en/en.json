@@ -74,5 +74,11 @@
       "emptyPasswordError": "Please fill password",
       "insufficientPasswordError": "Password should be at least 4 characters"
     }
+  },
+  "editProfile": {
+    "errors": {
+      "nameError": "Max length of the name is 10 characters",
+      "phoneError": "Max length of the phone number is 10 characters"
+    }
   }
 }
