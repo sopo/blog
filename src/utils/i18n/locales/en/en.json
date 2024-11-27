@@ -51,7 +51,12 @@
     "password": "Password",
     "forgotPassword": "Forgot password?",
     "accountQuestion": "Don't have an account?",
-    "signUp": "Sign up"
+    "signUp": "Sign up",
+    "errors": {
+      "emptyEmailError": "Please fill email",
+      "emptyPasswordError": "Please fill password",
+      "insufficientPasswordError": "Password should be at least 4 characters"
+    }
   },
   "signUp": {
     "title": "Sign up",

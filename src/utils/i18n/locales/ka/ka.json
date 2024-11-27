@@ -51,7 +51,12 @@
     "password": "პაროლი",
     "forgotPassword": "დაგავიწყდა პაროლი?",
     "accountQuestion": "არ გაქვს ანგარიში?",
-    "signUp": "რეგისტრაცია"
+    "signUp": "რეგისტრაცია",
+    "errors": {
+      "emptyEmailError": "ელ. ფოსტის მითითება სავალდებულოა",
+      "emptyPasswordError": "პაროლის მითითება სავალდებულოა",
+      "insufficientPasswordError": "პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან"
+    }
   },
   "signUp": {
     "title": "რეგისტრაცია",
