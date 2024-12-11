@@ -6,13 +6,21 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu";
   import { useTranslation } from "react-i18next";
-  import { NavLink } from "react-router-dom";
+  import {useNavigate } from "react-router-dom";
   import { Earth } from "lucide-react";
 const LangToggle:React.FC=()=> {
     const { i18n } = useTranslation();
+    const navigate = useNavigate();
     const handleLanguageChange = (language: string) => {
       i18n.changeLanguage(language);
+      const currentPath = window.location.pathname;
+      const pathSegments = currentPath.split('/');
+      if (pathSegments.length > 1) {
+        pathSegments[1] = language; 
+      }
+      navigate(pathSegments.join('/'));
     };
+  
     return(
         <DropdownMenu>
         <DropdownMenuTrigger>
@@ -22,20 +30,16 @@ const LangToggle:React.FC=()=> {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuSeparator />
-          <NavLink to={"/en"}>
             <DropdownMenuItem
               onClick={() => handleLanguageChange("en")}
             >
               English
             </DropdownMenuItem>
-          </NavLink>
-          <NavLink to={"/ka"}>
             <DropdownMenuItem
               onClick={() => handleLanguageChange("ka")}
             >
               ქართული
             </DropdownMenuItem>
-          </NavLink>
         </DropdownMenuContent>
       </DropdownMenu>
     )
