@@ -86,10 +86,9 @@
     "fields": {
       "titleEn": "Article Title in English",
       "titleKa": "Article Title in Georgian",
-      "titleError": "This field is required",
       "descriptionEn": "Article Description in English",
       "descriptionKa": "Article Description in Georgian",
-      "descriptionError": "This field is required",
+      "mandatoryError": "This field is required",
       "imageUrl": "Upload Image"
     },
     "button": "Add Article" 
