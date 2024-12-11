@@ -19,6 +19,7 @@ import GuestGuard from "./components/guards/guest-guard";
 import LoggedInGuard from "./components/guards/logged-in-guard";
 import { useAtomValue, useSetAtom } from "jotai";
 import { UserAtom, ProfileAtom } from "./store/auth";
+import Write from "./pages/write/write";
 
 
 const router = createBrowserRouter(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
         </Route>
         <Route element={<GuestGuard />}>
           <Route path="profile" element={<Profile />} />
+          <Route path="write" element={<Write />} />
         </Route>
         <Route path="author/:id" element={<Author />} />
       </Route>
