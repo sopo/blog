@@ -84,9 +84,11 @@
   "writeArticle": {
     "formTitle": "Add Article",
     "fields": {
-      "title": "Article Title",
+      "titleEn": "Article Title in English",
+      "titleKa": "Article Title in Georgian",
       "titleError": "This field is required",
-      "description": "Article Description",
+      "descriptionEn": "Article Description in English",
+      "descriptionKa": "Article Description in Georgian",
       "descriptionError": "This field is required",
       "imageUrl": "Upload Image"
     },

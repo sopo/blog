@@ -84,9 +84,11 @@
   "writeArticle": {
     "formTitle": "დაამატე სტატია",
     "fields": {
-      "title": "სათაური",
+      "titleEn": "სათაური ინგლისურად",
+      "titleKa": "სათაური ქართულად",
       "titleError": "ველის შევსება სავალდებულოა",
-      "description": "აღწერა",
+      "descriptionEn": "აღწერა ინგლისურად",
+      "descriptionKa": "აღწერა ქართულად",
       "descriptionError": "ველის შევსება სავალდებულოა",
       "imageUrl": "ატვირთე სურათი"
     },

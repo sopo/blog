@@ -11,27 +11,36 @@ export type Database = {
     Tables: {
       blogs: {
         Row: {
+          author: string | null
           created_at: string
-          description: string | null
+          description_en: string | null
+          description_ka: string | null
           id: number
           image_url: string | null
-          title: string | null
+          title_en: string | null
+          title_ka: string | null
           user_id: string | null
         }
         Insert: {
+          author?: string | null
           created_at?: string
-          description?: string | null
+          description_en?: string | null
+          description_ka?: string | null
           id?: number
           image_url?: string | null
-          title?: string | null
+          title_en?: string | null
+          title_ka?: string | null
           user_id?: string | null
         }
         Update: {
+          author?: string | null
           created_at?: string
-          description?: string | null
+          description_en?: string | null
+          description_ka?: string | null
           id?: number
           image_url?: string | null
-          title?: string | null
+          title_en?: string | null
+          title_ka?: string | null
           user_id?: string | null
         }
         Relationships: [
