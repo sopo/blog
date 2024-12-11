@@ -80,5 +80,17 @@
       "nameError": "Max length of the name is 10 characters",
       "phoneError": "Max length of the phone number is 10 characters"
     }
+  },
+  "writeArticle": {
+    "formTitle": "Add Article",
+    "fields": {
+      "title": "Article Title",
+      "titleError": "This field is required",
+      "description": "Article Description",
+      "descriptionError": "This field is required",
+      "imageUrl": "Upload Image"
+    },
+    "button": "Add Article" 
   }
+  
 }
