@@ -21,7 +21,6 @@ import { useNavigate } from "react-router-dom";
 const Write: React.FC = () => {
     const [uploadedImage, setUploadedImage] =useState<File | null>(null)
   const user = useAtomValue(ProfileAtom);
-  setTimeout(() => {console.log("user", user)}, 1000)
   const {
     register,
     handleSubmit,
@@ -75,7 +74,8 @@ const Write: React.FC = () => {
               description_ka: description_ka,
               image_url: data.fullPath,
               user_id: user?.id,
-              author: user?.full_name_ka
+              author_ka: user?.full_name_ka,
+              author_en: user?.full_name_en
             },
           ]);
         if (insertError) {
