@@ -17,7 +17,7 @@ import { Article } from "@/utils/interfaces/interfaces";
 import { ProfileAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Write: React.FC = () => {
     const [uploadedImage, setUploadedImage] =useState<File | null>(null)
   const user = useAtomValue(ProfileAtom);
@@ -35,7 +35,7 @@ const Write: React.FC = () => {
     },
   });
   const { t } = useTranslation();
-
+  const navigate = useNavigate()
   const title_en = register("title_en", {
     required: t("logIn.errors.emptyEmailError"),
   });
@@ -58,17 +58,14 @@ const Write: React.FC = () => {
       try {
         const file = uploadedImage;
         const fileName = file.name+new Date().toTimeString();
-
         const { error: uploadError, data } = await supabase.storage
           .from("blog_images")
           .upload(fileName, file)
-
         if (uploadError) {
           console.error("Error uploading file:", uploadError.message);
           return;
         }
-
-        const { data: insertedData, error: insertError } = await supabase
+        const { error: insertError } = await supabase
           .from("blogs")
           .insert([
             {
@@ -81,21 +78,15 @@ const Write: React.FC = () => {
               author: user?.full_name_ka
             },
           ]);
-          
         if (insertError) {
           console.error("Error inserting article:", insertError.message);
           return;
         }
-
-        console.log("Article inserted successfully:", insertedData);
-        // რედაირექთი ჩავსვა
-        
+        navigate("/")
       } catch (err) {
         console.error("Error submitting article:", err);
       }
     }
-
-    console.log("Article submitted:", data);
   };
 
   return (
