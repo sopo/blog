@@ -47,14 +47,14 @@ export default function SignIn() {
   });
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const email = register("email", {
-    required: t("logIn.errors.emptyEmailError"),
+    required: true,
     pattern: {
       value: emailPattern,
       message: t("logIn.errors.invalidEmailError"),
     },
   });
   const password = register("password", {
-    required: t("logIn.errors.emptyPasswordError"),
+    required: true,
     minLength: {
       value: 4,
       message: t("logIn.errors.insufficientPasswordError"),
@@ -85,14 +85,17 @@ export default function SignIn() {
                 id="email"
                 placeholder="john@example.com"
               />
-              <p className="paragraph-small-error">{errors.email?.message}</p>
+              {errors.email &&  <p className="paragraph-small-error"> {t("logIn.errors.emptyEmailError")}</p>}
+             
+             
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>{t("logIn.password")}</Label>
               <Input {...password} type="password" id="password" />
-              <p className="paragraph-small-error">
-                {errors.password?.message}
-              </p>
+              {errors.password && <p className="paragraph-small-error">
+                {t("logIn.errors.emptyPasswordError")}
+              </p>}
+              
             </LabeledInputContainer>
 
             <Button
