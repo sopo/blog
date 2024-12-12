@@ -3,7 +3,7 @@ import LabeledInputContainer from "@/components/containers/form-element-containe
 import AuthSection from "@/components/containers/section-containers/auth-section";
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, } from "@/components/ui/card";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { useMutation } from "@tanstack/react-query";
@@ -16,58 +16,60 @@ import { useForm } from "react-hook-form";
 
 import { useTranslation } from "react-i18next";
 type FormFields = {
-  id: string,
-  full_name_ka: string,
-  full_name_en: string,
-  avatar_url: string,
-  phone_number: string
-
-}
+  id: string;
+  full_name_ka: string;
+  full_name_en: string;
+  avatar_url: string;
+  phone_number: string;
+};
 const EditProfile: React.FC = () => {
   const { t } = useTranslation();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormFields>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>({
     defaultValues: {
       full_name_ka: "",
       full_name_en: "",
       avatar_url: "",
-      phone_number: ""
-    }
-  })
-  const user = useAtomValue(UserAtom)
-  const setProfile = useSetAtom(ProfileAtom)
+      phone_number: "",
+    },
+  });
+  const user = useAtomValue(UserAtom);
+  const setProfile = useSetAtom(ProfileAtom);
   const [data, setData] = useState({
     full_name_ka: "",
     full_name_en: "",
     avatar_url: "",
-    phone_number: ""
-  })
+    phone_number: "",
+  });
   useEffect(() => {
     const userId = user ? user.user.id : "";
     const fetchUser = async () => {
       const { data, error } = await supabase
         .from("profiles")
         .select()
-        .eq('id', userId)
+        .eq("id", userId)
         .single();
       if (error) {
-        console.log(error.message)
+        console.log(error.message);
       }
       if (data) {
         setData({
           full_name_ka: data.full_name_ka || "Georgian name",
           full_name_en: data.full_name_en || "english name",
           avatar_url: data.avatar_url || "www.example.com",
-          phone_number: data.phone_number || "+00 00 00 00"
+          phone_number: data.phone_number || "+00 00 00 00",
         });
         setProfile({
           ...data,
-
-        })
+        });
       }
-    }
-    fetchUser()
-  }, [])
+    };
+    fetchUser();
+  }, []);
 
   const { mutate: handleChangeData } = useMutation({
     mutationKey: ["user-personal-info"],
@@ -77,23 +79,22 @@ const EditProfile: React.FC = () => {
   const full_name_ka = register("full_name_ka", {
     maxLength: {
       value: 10,
-      message: t("editProfile.errors.nameError")
-    }
+      message: t("editProfile.errors.nameError"),
+    },
   });
   const full_name_en = register("full_name_en", {
     maxLength: {
       value: 10,
-      message: t("editProfile.errors.nameError")
-    }
+      message: t("editProfile.errors.nameError"),
+    },
   });
   const avatar_url = register("avatar_url");
   const phone_number = register("phone_number", {
     maxLength: {
       value: 10,
-      message: t("editProfile.errors.phoneError")
-    }
+      message: t("editProfile.errors.phoneError"),
+    },
   });
-
 
   return (
     <AuthSection>
@@ -102,14 +103,14 @@ const EditProfile: React.FC = () => {
           <TextCenterSmallBlock title="Edit profile" description="" />
         </CardHeader>
         <CardContent>
-
-          <FormContainer onSubmit={handleSubmit((data) => {
-            if (user?.user.id) {
-              const formData = { ...data, id: user.user.id }
-              handleChangeData(formData)
-            }
-
-          })}>
+          <FormContainer
+            onSubmit={handleSubmit((data) => {
+              if (user?.user.id) {
+                const formData = { ...data, id: user.user.id };
+                handleChangeData(formData);
+              }
+            })}
+          >
             <LabeledInputContainer>
               <Label>Georgian name</Label>
               <Input
@@ -118,7 +119,9 @@ const EditProfile: React.FC = () => {
                 id="fullNameKa"
                 placeholder={data.full_name_ka}
               />
-              <p className="paragraph-small-error">{errors.full_name_ka?.message}</p>
+              <p className="paragraph-small-error">
+                {errors.full_name_ka?.message}
+              </p>
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>English name</Label>
@@ -128,7 +131,9 @@ const EditProfile: React.FC = () => {
                 id="fullNameEn"
                 placeholder={data.full_name_en}
               />
-              <p className="paragraph-small-error">{errors.full_name_en?.message}</p>
+              <p className="paragraph-small-error">
+                {errors.full_name_en?.message}
+              </p>
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>Phone number</Label>
@@ -138,7 +143,9 @@ const EditProfile: React.FC = () => {
                 id="phoneNumber"
                 placeholder={data.phone_number}
               />
-              <p className="paragraph-small-error">{errors.phone_number?.message}</p>
+              <p className="paragraph-small-error">
+                {errors.phone_number?.message}
+              </p>
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>Profile picture link</Label>
@@ -157,9 +164,8 @@ const EditProfile: React.FC = () => {
             </Button>
           </FormContainer>
         </CardContent>
-
       </Card>
     </AuthSection>
-  )
-}
-export default EditProfile
+  );
+};
+export default EditProfile;

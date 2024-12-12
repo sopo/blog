@@ -1,4 +1,4 @@
-export default interface TextBlockProps{
-    title: string;
-    description: string;
+export default interface TextBlockProps {
+  title: string;
+  description: string;
 }

@@ -30,16 +30,16 @@
       "featuredAuthors": {
         "title": "Featured Authors",
         "aliceJohnson": {
-            "name": "Alice Johnson",
-            "proffesion": "Blockchain Enthusiast"
+          "name": "Alice Johnson",
+          "proffesion": "Blockchain Enthusiast"
         },
         "bobSmith": {
-            "name": "Bob Smith",
-            "proffesion": "Blockchain Enthusiast"
+          "name": "Bob Smith",
+          "proffesion": "Blockchain Enthusiast"
         },
         "carolWilliams": {
-            "name": "Carol Williams",
-            "proffesion": "Blockchain Enthusiast"
+          "name": "Carol Williams",
+          "proffesion": "Blockchain Enthusiast"
         }
       }
     }
@@ -80,5 +80,17 @@
       "nameError": "Max length of the name is 10 characters",
       "phoneError": "Max length of the phone number is 10 characters"
     }
+  },
+  "writeArticle": {
+    "formTitle": "Add Article",
+    "fields": {
+      "titleEn": "Article Title in English",
+      "titleKa": "Article Title in Georgian",
+      "descriptionEn": "Article Description in English",
+      "descriptionKa": "Article Description in Georgian",
+      "mandatoryError": "This field is required",
+      "imageUrl": "Upload Image"
+    },
+    "button": "Add Article"
   }
 }

@@ -1,4 +1,4 @@
-import { AuthProps } from "@/utils/interfaces/auth";
+import { AuthProps } from "@/utils/interfaces/interfaces";
 import { supabase } from "../index";
 
 export const registerUser = ({ email, password }: AuthProps) => {

@@ -8,12 +8,12 @@ import Screen2Xl from "@/components/containers/page-containers/screen-2xl";
 
 import { useAtomValue } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
-import User from "./user"
+import User from "./user";
 export default function Header() {
-  const user = useAtomValue(UserAtom)
-  const loggedUser = useAtomValue(ProfileAtom)
-  console.log("loggedin ", loggedUser)
-  const customAvatar = loggedUser?.avatar_url
+  const user = useAtomValue(UserAtom);
+  const loggedUser = useAtomValue(ProfileAtom);
+  console.log("loggedin ", loggedUser);
+  const customAvatar = loggedUser?.avatar_url;
   return (
     <div className="border-b border-border-soft">
       <Screen2Xl>
@@ -22,11 +22,10 @@ export default function Header() {
           <NavMenu />
           <div className="flex items-center space-x-4">
             <Searchbar />
-            {user ? <User avatar_url={customAvatar}/>: <SignIn />}
-           
+            {user ? <User avatar_url={customAvatar} /> : <SignIn />}
+
             <LangToggle />
             <ModeToggle />
-           
           </div>
         </div>
       </Screen2Xl>

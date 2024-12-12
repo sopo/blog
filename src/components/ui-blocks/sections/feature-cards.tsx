@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { PropsWithChildren } from "react";
 import { ReactNode } from "react";
 interface FeatureCardsProps {
-  content: { icon:ReactNode, title: string; description: string }[];
+  content: { icon: ReactNode; title: string; description: string }[];
 }
 const FeatureCards: React.FC<PropsWithChildren<FeatureCardsProps>> = ({
   children,
