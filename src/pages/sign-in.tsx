@@ -85,17 +85,21 @@ export default function SignIn() {
                 id="email"
                 placeholder="john@example.com"
               />
-              {errors.email &&  <p className="paragraph-small-error"> {t("logIn.errors.emptyEmailError")}</p>}
-             
-             
+              {errors.email && (
+                <p className="paragraph-small-error">
+                  {" "}
+                  {t("logIn.errors.emptyEmailError")}
+                </p>
+              )}
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>{t("logIn.password")}</Label>
               <Input {...password} type="password" id="password" />
-              {errors.password && <p className="paragraph-small-error">
-                {t("logIn.errors.emptyPasswordError")}
-              </p>}
-              
+              {errors.password && (
+                <p className="paragraph-small-error">
+                  {t("logIn.errors.emptyPasswordError")}
+                </p>
+              )}
             </LabeledInputContainer>
 
             <Button
