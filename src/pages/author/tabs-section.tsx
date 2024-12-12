@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CardsSection from "../home/cards-section";
+
 import {
   Card,
   CardContent,
@@ -19,7 +19,8 @@ const TabsSection: React.FC = () => {
         <TabsTrigger value="about">About</TabsTrigger>
       </TabsList>
       <TabsContent value="articles">
-        <CardsSection />
+        {/* <CardsSection /> */}
+       
       </TabsContent>
       <TabsContent value="about">
         <Card>
