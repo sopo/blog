@@ -5,11 +5,10 @@ import OurMissionSection from "./our-mission-section";
 import AboutUsSection from "./about-us-section";
 import WhatWeOffer from "./what-we-offer";
 const About: React.FC = () => {
-
   return (
     <div>
       <ScreenLg>
-       <AboutUsSection />
+        <AboutUsSection />
         <OurMissionSection />
         <WhatWeOffer />
         <OurStorySection />

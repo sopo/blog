@@ -1,2 +1,2 @@
-import { Article } from "./interfaces"
-export type Articles = Article[]; 
+import { Article } from "./interfaces";
+export type Articles = Article[];

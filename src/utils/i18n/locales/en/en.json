@@ -30,16 +30,16 @@
       "featuredAuthors": {
         "title": "Featured Authors",
         "aliceJohnson": {
-            "name": "Alice Johnson",
-            "proffesion": "Blockchain Enthusiast"
+          "name": "Alice Johnson",
+          "proffesion": "Blockchain Enthusiast"
         },
         "bobSmith": {
-            "name": "Bob Smith",
-            "proffesion": "Blockchain Enthusiast"
+          "name": "Bob Smith",
+          "proffesion": "Blockchain Enthusiast"
         },
         "carolWilliams": {
-            "name": "Carol Williams",
-            "proffesion": "Blockchain Enthusiast"
+          "name": "Carol Williams",
+          "proffesion": "Blockchain Enthusiast"
         }
       }
     }
@@ -91,7 +91,6 @@
       "mandatoryError": "This field is required",
       "imageUrl": "Upload Image"
     },
-    "button": "Add Article" 
+    "button": "Add Article"
   }
-  
 }

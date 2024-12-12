@@ -7,7 +7,11 @@ import { useNavigate } from "react-router-dom";
 export const useArticleForm = (user: any) => {
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm<Article>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Article>({
     defaultValues: {
       title_en: "",
       description_en: "",
@@ -34,20 +38,18 @@ export const useArticleForm = (user: any) => {
           console.error("Error uploading file:", uploadError.message);
           return;
         }
-        const { error: insertError } = await supabase
-          .from("blogs")
-          .insert([
-            {
-              title_en,
-              description_en,
-              title_ka,
-              description_ka,
-              image_url: uploadData.fullPath,
-              user_id: user?.id,
-              author_ka: user?.full_name_ka,
-              author_en: user?.full_name_en,
-            },
-          ]);
+        const { error: insertError } = await supabase.from("blogs").insert([
+          {
+            title_en,
+            description_en,
+            title_ka,
+            description_ka,
+            image_url: uploadData.fullPath,
+            user_id: user?.id,
+            author_ka: user?.full_name_ka,
+            author_en: user?.full_name_en,
+          },
+        ]);
         if (insertError) {
           console.error("Error inserting article:", insertError.message);
           return;

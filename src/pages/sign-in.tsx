@@ -18,52 +18,65 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 type FormFields = {
-  email: string,
-  password: string
-}
+  email: string;
+  password: string;
+};
 export default function SignIn() {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormFields>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>({
     defaultValues: {
       email: "",
-      password: ""
-    }
-  })
+      password: "",
+    },
+  });
   const { t } = useTranslation();
   const { lang } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { mutate: handleLogin } = useMutation({
     mutationKey: ["login"],
     mutationFn: login,
     onSuccess: () => {
-      navigate(`/${lang}`)
+      navigate(`/${lang}`);
     },
     onError: (error) => {
       console.error("Login failed", error);
     },
   });
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const email = register("email", { required: t("logIn.errors.emptyEmailError"),  pattern: {
-    value: emailPattern,
-    message: t("logIn.errors.invalidEmailError")
-  } });
+  const email = register("email", {
+    required: t("logIn.errors.emptyEmailError"),
+    pattern: {
+      value: emailPattern,
+      message: t("logIn.errors.invalidEmailError"),
+    },
+  });
   const password = register("password", {
-    required: t("logIn.errors.emptyPasswordError"), minLength: {
+    required: t("logIn.errors.emptyPasswordError"),
+    minLength: {
       value: 4,
-      message: t("logIn.errors.insufficientPasswordError")
-    }
+      message: t("logIn.errors.insufficientPasswordError"),
+    },
   });
   return (
     <AuthSection>
       <Card>
         <CardHeader>
           <CardTitle>
-            <TextCenterSmallBlock title={`${t("logIn.title")}`} description={`${t("logIn.description")}`} />
+            <TextCenterSmallBlock
+              title={`${t("logIn.title")}`}
+              description={`${t("logIn.description")}`}
+            />
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <FormContainer onSubmit={handleSubmit((data) => {
-            handleLogin(data)
-          })}>
+          <FormContainer
+            onSubmit={handleSubmit((data) => {
+              handleLogin(data);
+            })}
+          >
             <LabeledInputContainer>
               <Label>{t("logIn.email")}</Label>
               <Input
@@ -76,12 +89,10 @@ export default function SignIn() {
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>{t("logIn.password")}</Label>
-              <Input
-                {...password}
-                type="password"
-                id="password"
-              />
-              <p className="paragraph-small-error">{errors.password?.message}</p>
+              <Input {...password} type="password" id="password" />
+              <p className="paragraph-small-error">
+                {errors.password?.message}
+              </p>
             </LabeledInputContainer>
 
             <Button
@@ -110,9 +121,6 @@ export default function SignIn() {
           </p>
         </CardFooter>
       </Card>
-
-
-
     </AuthSection>
   );
 }

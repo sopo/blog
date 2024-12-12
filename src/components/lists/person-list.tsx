@@ -1,10 +1,6 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren } from "react";
 
-const PersonList:React.FC<PropsWithChildren> = ({children}) => {
-    return (
-        <ul role="list">
-             {children}
-         </ul>
-    )
-}
-export default PersonList
+const PersonList: React.FC<PropsWithChildren> = ({ children }) => {
+  return <ul role="list">{children}</ul>;
+};
+export default PersonList;

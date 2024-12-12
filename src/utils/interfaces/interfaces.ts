@@ -1,9 +1,8 @@
-
 export interface AuthProps {
   email: string;
   password: string;
 }
-export interface Article{
+export interface Article {
   id: number;
   title_en: string | null;
   description_en: string | null;

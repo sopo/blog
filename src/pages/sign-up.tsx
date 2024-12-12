@@ -4,10 +4,10 @@ import { Label } from "../components/ui/label";
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LabeledInputContainer from "../components/containers/form-element-containers/labeled-input-container";
-import FormContainer from "../components/containers/form-element-containers/form-container"
+import FormContainer from "../components/containers/form-element-containers/form-container";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../supabase/auth";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import {
   Card,
   CardContent,
@@ -17,16 +17,20 @@ import {
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import AuthSection from "@/components/containers/section-containers/auth-section";
 type FormFields = {
-  email: string,
-  password: string
-}
+  email: string;
+  password: string;
+};
 export default function SignUp() {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormFields>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>({
     defaultValues: {
       email: "",
       password: "",
-    }
-  })
+    },
+  });
   const { lang } = useParams();
   const { t } = useTranslation();
   const { mutate: handleRegister } = useMutation({
@@ -34,28 +38,36 @@ export default function SignUp() {
     mutationFn: registerUser,
   });
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const email = register("email", { required: t("signUp.errors.emptyEmailError"), pattern: {
-    value: emailPattern,
-    message: t("signUp.errors.invalidEmailError")
-  } })
+  const email = register("email", {
+    required: t("signUp.errors.emptyEmailError"),
+    pattern: {
+      value: emailPattern,
+      message: t("signUp.errors.invalidEmailError"),
+    },
+  });
   const password = register("password", {
-    required: t("signUp.errors.emptyPasswordError"), minLength: {
+    required: t("signUp.errors.emptyPasswordError"),
+    minLength: {
       value: 4,
-      message: t("signUp.errors.insufficientPasswordError")
-    }
-  })
-  
+      message: t("signUp.errors.insufficientPasswordError"),
+    },
+  });
+
   return (
     <AuthSection>
       <Card>
         <CardHeader>
-          <TextCenterSmallBlock title={`${t("signUp.title")}`} description={`${t("signUp.description")}`} />
+          <TextCenterSmallBlock
+            title={`${t("signUp.title")}`}
+            description={`${t("signUp.description")}`}
+          />
         </CardHeader>
         <CardContent>
-          <FormContainer onSubmit={handleSubmit((data) => {
-            handleRegister(data)
-          })}>
-
+          <FormContainer
+            onSubmit={handleSubmit((data) => {
+              handleRegister(data);
+            })}
+          >
             <LabeledInputContainer>
               <Label>{t("signUp.name")}</Label>
               <Input type="text" id="name" placeholder="John Doe" />
@@ -72,12 +84,10 @@ export default function SignUp() {
             </LabeledInputContainer>
             <LabeledInputContainer>
               <Label>{t("signUp.password")}</Label>
-              <Input
-                {...password}
-                type="password"
-                id="password"
-              />
-              <p className="paragraph-small-error">{errors.password?.message}</p>
+              <Input {...password} type="password" id="password" />
+              <p className="paragraph-small-error">
+                {errors.password?.message}
+              </p>
             </LabeledInputContainer>
 
             <Button
@@ -101,6 +111,5 @@ export default function SignUp() {
         </CardFooter>
       </Card>
     </AuthSection>
-
   );
 }

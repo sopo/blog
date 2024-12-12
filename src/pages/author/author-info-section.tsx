@@ -1,7 +1,4 @@
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Twitter, Github, Users } from "lucide-react";
@@ -17,7 +14,10 @@ const AuthorInfoSection: React.FC = () => {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <div className="flex flex-col gap-y-4">
-            <TextRightMediumBlock title="Jane Doe" description="Tech enthusiast, software engineer, and avid blogger. Passionate about AI, web development, and the future of technology."/>
+            <TextRightMediumBlock
+              title="Jane Doe"
+              description="Tech enthusiast, software engineer, and avid blogger. Passionate about AI, web development, and the future of technology."
+            />
 
             <div className="flex gap-2">
               <Button variant="outline" size="icon">

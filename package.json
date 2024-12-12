@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "supabase-ts": "npx supabase gen types --lang=typescript --project-id wvwobfngfsfoxxyfkmsi --schema public > src/supabase/database.types.ts"
+    "supabase-ts": "npx supabase gen types --lang=typescript --project-id wvwobfngfsfoxxyfkmsi --schema public > src/supabase/database.types.ts",
+    "format": "prettier . --write",
+    "prepare": "husky"
   },
   "dependencies": {
     "@dicebear/collection": "^9.2.2",
@@ -46,12 +48,14 @@
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.13.0",
+    "eslint": "^9.16.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
+    "husky": "^9.1.7",
     "postcss": "^8.4.49",
     "supabase": "^1.223.10",
     "tailwindcss": "^3.4.15",
