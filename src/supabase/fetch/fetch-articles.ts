@@ -11,7 +11,8 @@ export const fetchArticles = async ({ searchData }: SearchDataProps): Promise<Ar
     let request = supabase.from("blogs").select("*");
 
     if (searchData) {
-      request = request.ilike("title_en", `%${searchData}%`);
+      request = request.or(`title_en.ilike.%${searchData}%,title_ka.ilike.%${searchData}%`);
+     
     }
 
     const { data, error } = await request
@@ -27,7 +28,7 @@ export const fetchArticles = async ({ searchData }: SearchDataProps): Promise<Ar
     
     return data;
   } catch (err) {
-    console.error("Error fetching articles", err);
+    console.error("Error fetching articles", err);  
     return [];  
   }
 };
