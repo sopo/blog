@@ -4,6 +4,9 @@
   "write": "სტატიის დამატება",
   "about": "ჩვენ შესახებ",
   "signIn": "შესვლა",
+  "general": {
+    "search": "ძებნა..."
+  },
   "homePage": {
     "cards": {
       "firstCard": {

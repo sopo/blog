@@ -4,6 +4,9 @@
   "write": "Write",
   "about": "About us",
   "signIn": "Sign In",
+  "general": {
+    "search": "Search..."
+  },
   "homePage": {
     "cards": {
       "firstCard": {
@@ -92,8 +95,5 @@
       "imageUrl": "Upload Image"
     },
     "button": "Add Article"
-  },
-  "date": {
-    
   }
 }
