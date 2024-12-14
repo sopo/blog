@@ -14,3 +14,7 @@ export interface Article {
   user_id: string | null;
   created_at: string;
 }
+
+export interface SearchFormValues{
+  search: string;
+}

@@ -4,15 +4,19 @@ import Screen2Xl from "@/components/containers/page-containers/screen-2xl";
 import ContainerGridCol3 from "@/components/containers/grid/container-grid-c-3";
 import { fetchArticles } from "@/supabase/fetch/fetch-articles";
 import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router-dom";
 export default function Home() {
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || ""; 
   const {
     data: articles,
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ["articles"],
-    queryFn: fetchArticles,
+    queryKey: ["articles", searchQuery],
+    queryFn: () => fetchArticles({ searchData: searchQuery }),
+    
   });
   if (isLoading) {
     return <div>Loading...</div>;
@@ -20,6 +24,7 @@ export default function Home() {
   if (isError) {
     return <div>Error: {error instanceof Error ? error.message : "Error"}</div>;
   }
+  console.log("search", searchParams)
 
   return (
     <Screen2Xl>
