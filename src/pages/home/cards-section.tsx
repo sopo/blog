@@ -8,19 +8,31 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Articles } from "@/utils/interfaces/types";
-import { format } from "date-fns";
+import dayjs from 'dayjs';
+import isToday from 'dayjs/plugin/isToday';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import 'dayjs/locale/ka';
+import 'dayjs/locale/en';
+
 const CardsSection: React.FC<{ articles: Articles }> = ({ articles }) => {
   const { t } = useTranslation();
   const { lang } = useParams();
+  dayjs.extend(relativeTime);
+  dayjs.extend(isToday);
+  dayjs.locale(lang || 'en');
+
   return (
     <section className="col-span-2 sm:col-span-3 lg:col-span-2">
       {articles.length > 0 &&
         articles.map((article) => {
-          const formattedDate = format(
-            new Date(article.created_at),
-            "dd MMM yyyy",
-          );
-       
+          const isToday = dayjs(article.created_at).isToday();
+          const date = isToday
+            ? dayjs(article.created_at).fromNow() 
+            : dayjs(article.created_at).format("DD MMM YYYY"); 
+
+            
+
+
           const articleImageUrl = article.image_url
             ? `${import.meta.env.VITE_SUPABASE_BLOG_IMAGE_STORAGE_URL}${article.image_url}`
             : "https://g-zwkebgiacpe.vusercontent.net/placeholder.svg?height=200&width=400";
@@ -39,7 +51,7 @@ const CardsSection: React.FC<{ articles: Articles }> = ({ articles }) => {
                     <Link to="" className="hover:underline">
                       {lang === "en" ? article.author_en : article.author_ka}
                     </Link>{" "}
-                    • {formattedDate} •{" "}
+                    • {date} •{" "}
                     {t("homePage.cards.firstCard.timeToRead")}
                   </p>
                 </CardDescription>
