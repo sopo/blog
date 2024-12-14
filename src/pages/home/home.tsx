@@ -15,7 +15,7 @@ export default function Home() {
     error,
   } = useQuery({
     queryKey: ["articles", searchQuery],
-    queryFn: () => fetchArticles({ searchData: searchQuery }),
+    queryFn: () => fetchArticles({ search: searchQuery }),
     
   });
   if (isLoading) {

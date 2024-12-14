@@ -1,17 +1,16 @@
 import { supabase } from "@/supabase";
+import { SearchFormValues } from "@/utils/interfaces/interfaces";
 import { Articles } from "@/utils/interfaces/types";  
 
-interface SearchDataProps {
-  searchData?: string;
-}
 
-export const fetchArticles = async ({ searchData }: SearchDataProps): Promise<Articles> => {
+
+export const fetchArticles = async ({ search }: SearchFormValues): Promise<Articles> => {
   try {
 
     let request = supabase.from("blogs").select("*");
 
-    if (searchData) {
-      request = request.or(`title_en.ilike.%${searchData}%,title_ka.ilike.%${searchData}%`);
+    if (search) {
+      request = request.or(`title_en.ilike.%${search}%,title_ka.ilike.%${search}%`);
      
     }
 

@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input";
 import { SearchFormValues } from "@/utils/interfaces/interfaces";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useDebounce } from "@/hooks/use-debounce";
+
 const Searchbar: React.FC = () => {
-  const { t } = useTranslation();
+const { t } = useTranslation();
 const [searchParams, setSearchParams] = useSearchParams();
 const { register, watch } = useForm<SearchFormValues>({
   defaultValues: {
@@ -15,13 +17,14 @@ const { register, watch } = useForm<SearchFormValues>({
 });
 const search = register("search");
 const enteredText = watch("search")
+const debouncedSearch = useDebounce(enteredText)
 useEffect(() => {
-  if (enteredText.length > 0){
-    setSearchParams({search: enteredText})
+  if (debouncedSearch.length > 0){
+    setSearchParams({search: debouncedSearch})
   }else{
     setSearchParams({})
   }
-}, [enteredText])
+}, [debouncedSearch, setSearchParams])
 
   return (
         <div className="relative">
