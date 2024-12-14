@@ -28,7 +28,7 @@ const CardsSection: React.FC<{ articles: Articles }> = ({ articles }) => {
           const isToday = dayjs(article.created_at).isToday();
           const date = isToday
             ? dayjs(article.created_at).fromNow() 
-            : dayjs(article.created_at).format("DD MMM YYYY"); 
+            : dayjs(article.created_at).format("HH:mm DD MMM YYYY"); 
             
           const articleImageUrl = article.image_url
             ? `${import.meta.env.VITE_SUPABASE_BLOG_IMAGE_STORAGE_URL}${article.image_url}`
