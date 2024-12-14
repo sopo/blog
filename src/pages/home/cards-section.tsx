@@ -20,6 +20,7 @@ const CardsSection: React.FC<{ articles: Articles }> = ({ articles }) => {
             new Date(article.created_at),
             "dd MMM yyyy",
           );
+       
           const articleImageUrl = article.image_url
             ? `${import.meta.env.VITE_SUPABASE_BLOG_IMAGE_STORAGE_URL}${article.image_url}`
             : "https://g-zwkebgiacpe.vusercontent.net/placeholder.svg?height=200&width=400";
