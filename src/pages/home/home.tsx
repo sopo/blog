@@ -5,9 +5,17 @@ import ContainerGridCol3 from "@/components/containers/grid/container-grid-c-3";
 import { fetchArticles } from "@/supabase/fetch/fetch-articles";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
+import qs from "qs";
+
 export default function Home() {
   const [searchParams] = useSearchParams();
-  const searchQuery = searchParams.get("search") || ""; 
+
+  const parsedQueryParams = qs.parse(searchParams.toString());
+  const searchQuery =
+    typeof parsedQueryParams.search === "string"
+      ? parsedQueryParams.search
+      : "";
+
   const {
     data: articles,
     isLoading,
@@ -16,7 +24,6 @@ export default function Home() {
   } = useQuery({
     queryKey: ["articles", searchQuery],
     queryFn: () => fetchArticles({ search: searchQuery }),
-    
   });
   if (isLoading) {
     return <div>Loading...</div>;
@@ -24,7 +31,7 @@ export default function Home() {
   if (isError) {
     return <div>Error: {error instanceof Error ? error.message : "Error"}</div>;
   }
-  console.log("search", searchParams)
+  console.log("search", searchParams);
 
   return (
     <Screen2Xl>
