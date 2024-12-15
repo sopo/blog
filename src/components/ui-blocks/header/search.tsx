@@ -6,21 +6,31 @@ import { SearchFormValues } from "@/utils/interfaces/interfaces";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDebounce } from "@/hooks/use-debounce";
+import qs from 'qs';
+
+
 
 const Searchbar: React.FC = () => {
 const { t } = useTranslation();
 const [searchParams, setSearchParams] = useSearchParams();
+
+const parsedQueryParams = qs.parse(searchParams.toString())
+const searchQuery = typeof parsedQueryParams.search === 'string' ? parsedQueryParams.search : '';
+
 const { register, watch } = useForm<SearchFormValues>({
   defaultValues: {
-    search: searchParams.get("search") || "", 
+    search: searchQuery
   },
 });
 const search = register("search");
 const enteredText = watch("search")
 const debouncedSearch = useDebounce(enteredText)
+
 useEffect(() => {
   if (debouncedSearch.length > 0){
-    setSearchParams({search: debouncedSearch})
+    const newQueryParams = {search: debouncedSearch}
+    const serializedParams = qs.stringify(newQueryParams, {skipNulls: true})
+    setSearchParams(serializedParams)
   }else{
     setSearchParams({})
   }
