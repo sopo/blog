@@ -3,8 +3,9 @@ import { Article } from "@/utils/interfaces/interfaces";
 import { supabase } from "@/supabase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Profile } from "@/store/auth";
 
-export const useArticleForm = (user: any) => {
+export const useArticleForm = (user: Profile | null) => {
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const navigate = useNavigate();
   const {

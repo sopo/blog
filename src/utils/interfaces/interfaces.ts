@@ -15,6 +15,6 @@ export interface Article {
   created_at: string;
 }
 
-export interface SearchFormValues{
+export interface SearchFormValues {
   search: string;
 }

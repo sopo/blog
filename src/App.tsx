@@ -78,7 +78,7 @@ function App() {
 
         if (error) throw error;
         setProfile(data);
-      } catch (error) {
+      } catch {
         console.error("Error fetching profile");
       }
     };

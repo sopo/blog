@@ -15,6 +15,7 @@ import { useTranslation, Trans } from "react-i18next";
 const Write: React.FC = () => {
   const user = useAtomValue(ProfileAtom);
   const { t } = useTranslation();
+
   const { register, handleSubmit, errors, handleImageChange, onSubmit } =
     useArticleForm(user);
 
