@@ -2,7 +2,8 @@ import { PropsWithChildren } from "react";
 import { Navigate, Outlet, useParams } from "react-router-dom";
 import { useAtomValue } from "jotai";
 import { UserAtom } from "@/store/auth";
-import { AUTH_PATHS } from "@/routes/auth-layout/auth.enums";
+import { AUTH_PATHS } from "@/pages/auth-layout/auth.enums";
+
 const GuestGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const { lang } = useParams();
   const user = useAtomValue(UserAtom);

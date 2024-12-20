@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import { AUTH_PATHS } from "@/routes/auth-layout/auth.enums";
+import { AUTH_PATHS } from "@/pages/auth-layout/auth.enums";
+
 const SignIn: React.FC = () => {
   const { t } = useTranslation();
   return (

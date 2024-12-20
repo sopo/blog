@@ -5,7 +5,6 @@ import Searchbar from "./search";
 import SignIn from "./sign-in";
 import LangToggle from "./lang-toggle";
 import Screen2Xl from "@/components/containers/page-containers/screen-2xl";
-
 import { useAtomValue } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import User from "./user";
