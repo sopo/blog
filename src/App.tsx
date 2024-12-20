@@ -20,27 +20,28 @@ import LoggedInGuard from "./components/guards/logged-in-guard";
 import { useAtomValue, useSetAtom } from "jotai";
 import { UserAtom, ProfileAtom } from "./store/auth";
 import Write from "./pages/write/write";
+import { router } from "./routes/routes";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<Navigate to="/en" />} />
-      <Route path=":lang" element={<Root />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route element={<LoggedInGuard />}>
-          <Route path="sign-in" element={<SignIn />} />
-          <Route path="sign-up" element={<SignUp />} />
-        </Route>
-        <Route element={<GuestGuard />}>
-          <Route path="profile" element={<Profile />} />
-          <Route path="write" element={<Write />} />
-        </Route>
-        <Route path="author/:id" element={<Author />} />
-      </Route>
-    </Route>,
-  ),
-);
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route>
+//       <Route path="/" element={<Navigate to="/en" />} />
+//       <Route path=":lang" element={<Root />}>
+//         <Route index element={<Home />} />
+//         <Route path="about" element={<About />} />
+//         <Route element={<LoggedInGuard />}>
+//           <Route path="sign-in" element={<SignIn />} />
+//           <Route path="sign-up" element={<SignUp />} />
+//         </Route>
+//         <Route element={<GuestGuard />}>
+//           <Route path="profile" element={<Profile />} />
+//           <Route path="write" element={<Write />} />
+//         </Route>
+//         <Route path="author/:id" element={<Author />} />
+//       </Route>
+//     </Route>,
+//   ),
+// );
 function App() {
   const setUser = useSetAtom(UserAtom);
   const user = useAtomValue(UserAtom);
