@@ -1,14 +1,14 @@
 import { Suspense } from "react";
-import { AUTH_PATHS } from "../auth.enums";
-import { SignIn } from "./sign-in.loader";
 import { Fallback } from "@/routes/fallback-loader";
+import { ROOT_PATHS } from "@/pages/root-layout/root.enums";
+import { Home } from "./home.loader";
 
-export const SIGN_IN_ROUTES = [
+export const HOME_ROUTES = [
   {
-    path: AUTH_PATHS.SIGN_IN,
+    path: ROOT_PATHS.HOME,
     element: (
       <Suspense fallback={Fallback}>
-        <SignIn />
+        <Home />
       </Suspense>
     ),
   },

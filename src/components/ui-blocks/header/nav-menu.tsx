@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Link, NavLink, NavLinkRenderProps } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ROOT_PATHS } from "@/routes/root-layout/root.enums";
+import { ROOT_PATHS } from "@/pages/root-layout/root.enums";
 const NavMenu: React.FC = () => {
   const { t } = useTranslation();
   const handleActiveLink = ({ isActive }: NavLinkRenderProps) => {

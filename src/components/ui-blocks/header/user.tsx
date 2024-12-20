@@ -5,10 +5,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Avatar from "@/pages/profile/avatar";
+import Avatar from "@/pages/user-layout/profile/components/avatar";
 import Logout from "./logout";
 import { Link } from "react-router-dom";
-import { ROOT_PATHS } from "@/routes/root-layout/root.enums";
+import { ROOT_PATHS } from "@/pages/root-layout/root.enums";
 interface UserProps {
   avatar_url?: string | null;
 }

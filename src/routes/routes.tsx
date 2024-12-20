@@ -1,14 +1,14 @@
 import GuestGuard from "@/components/guards/guest-guard";
 import LoggedInGuard from "@/components/guards/logged-in-guard";
-import Root from "@/pages/Root";
+import Root from "@/pages/root-layout/Root";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AUTH_PATHS } from "./auth-layout/auth.enums";
 import { AUTH_ROUTES } from "./auth-layout/auth-routes";
 import AuthLayout from "@/layouts/auth-layout";
-import { ROOT_ROUTES } from "./root-layout/root-routes";
-import { ROOT_PATHS } from "./root-layout/root.enums";
+import { ROOT_ROUTES } from "../pages/root-layout/root-routes";
+import { ROOT_PATHS } from "../pages/root-layout/root.enums";
 import UserLayout from "@/layouts/user-layout";
-import { USER_ROUTES } from "./root-layout/user-layout/user-routes";
+import { USER_ROUTES } from "../pages/user-layout/user-routes";
 
 export const routes = [
   {
