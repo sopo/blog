@@ -1,5 +1,3 @@
 import { lazy } from "react";
 
-export const Author = lazy(
-  () => import("./author"),
-);
+export const Author = lazy(() => import("./author"));
