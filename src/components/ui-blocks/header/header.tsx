@@ -12,7 +12,6 @@ import User from "./user";
 export default function Header() {
   const user = useAtomValue(UserAtom);
   const loggedUser = useAtomValue(ProfileAtom);
-  console.log("loggedin ", loggedUser);
   const customAvatar = loggedUser?.avatar_url;
   return (
     <div className="border-b border-border-soft">

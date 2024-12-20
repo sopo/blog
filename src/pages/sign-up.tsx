@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import AuthSection from "@/components/containers/section-containers/auth-section";
+import { AUTH_PATHS } from "@/routes/auth-layout/auth.enums";
 type FormFields = {
   email: string;
   password: string;
@@ -102,7 +103,7 @@ export default function SignUp() {
           <p className="paragraph-small-secondary">
             {t("signUp.accountQuestion")}
             <Link
-              to={`/${lang}/sign-in`}
+              to={`/${lang}/${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_IN}`}
               className="text-primary hover:underline"
             >
               {t("signUp.signIn")}

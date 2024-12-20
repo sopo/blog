@@ -17,6 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { AUTH_PATHS } from "@/routes/auth-layout/auth.enums";
 type FormFields = {
   email: string;
   password: string;
@@ -120,7 +121,7 @@ export default function SignIn() {
           <p className="paragraph-small-secondary">
             {`${t("logIn.accountQuestion")} `}
             <Link
-              to={`/${lang}/sign-up`}
+              to={`/${lang}/${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_UP}`}
               className="text-primary hover:underline"
             >
               <Trans>logIn.signUp</Trans>

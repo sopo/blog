@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import TagBlock from "@/components/ui-blocks/tag-block";
 import { getPopularTags } from "@/utils/static data/popular-tags";
+import { ROOT_PATHS } from "@/routes/root-layout/root.enums";
 
 const CardsAside: React.FC = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const CardsAside: React.FC = () => {
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
           <PersonList>
-            <Link to="author/1">
+            <Link to={`${ROOT_PATHS.AUTHOR}/1`}>
               <PersonListItem
                 name={t("homePage.cards.featuredAuthors.aliceJohnson.name")}
                 proffesion={t(
@@ -39,7 +40,7 @@ const CardsAside: React.FC = () => {
                 imgSrc=""
               />
             </Link>
-            <Link to="author/1">
+            <Link to={`${ROOT_PATHS.AUTHOR}/1`}>
               <PersonListItem
                 name={t("homePage.cards.featuredAuthors.bobSmith.name")}
                 proffesion={t(
@@ -48,7 +49,7 @@ const CardsAside: React.FC = () => {
                 imgSrc=""
               />
             </Link>
-            <Link to="author/1">
+            <Link to={`${ROOT_PATHS.AUTHOR}/1`}>
               <PersonListItem
                 name={t("homePage.cards.featuredAuthors.carolWilliams.name")}
                 proffesion={t(

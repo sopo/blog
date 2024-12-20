@@ -1,14 +1,14 @@
 import GuestGuard from "@/components/guards/guest-guard";
 import LoggedInGuard from "@/components/guards/logged-in-guard";
-import About from "@/pages/about/about";
-import Author from "@/pages/author/author";
-import Home from "@/pages/home/home";
-import Profile from "@/pages/profile/profile";
 import Root from "@/pages/Root";
-import SignIn from "@/pages/sign-in";
-import SignUp from "@/pages/sign-up";
-import Write from "@/pages/write/write";
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import { AUTH_PATHS } from "./auth-layout/auth.enums";
+import { AUTH_ROUTES } from "./auth-layout/auth-routes";
+import AuthLayout from "@/layouts/auth-layout";
+import { ROOT_ROUTES } from "./root-layout/root-routes";
+import { ROOT_PATHS } from "./root-layout/root.enums";
+import UserLayout from "@/layouts/user-layout";
+import { USER_ROUTES } from "./root-layout/user-layout/user-routes";
 
 export const routes = [
   {
@@ -19,49 +19,29 @@ export const routes = [
     path: "/:lang",
     element: <Root />,
     children: [
+      ...ROOT_ROUTES,
       {
-        path: "",
-        element: <Home />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "sign-in",
+        path: AUTH_PATHS.AUTH,
         element: (
           <LoggedInGuard>
-            <SignIn />
+            <AuthLayout />
           </LoggedInGuard>
         ),
+        children: [
+            ...AUTH_ROUTES
+        ]
       },
+
       {
-        path: "sign-up",
-        element: (
-          <LoggedInGuard>
-            <SignUp />
-          </LoggedInGuard>
-        ),
-      },
-      {
-        path: "profile",
+        path: ROOT_PATHS.USER,
         element: (
           <GuestGuard>
-            <Profile />
+            <UserLayout />
           </GuestGuard>
-        ),
-      },
-      {
-        path: "write",
-        element: (
-          <GuestGuard>
-            <Write />
-          </GuestGuard>
-        ),
-      },
-      {
-        path: "author/:id",
-        element: <Author />,
+        ), children: [
+            ...USER_ROUTES,
+
+        ]
       },
     ],
   },

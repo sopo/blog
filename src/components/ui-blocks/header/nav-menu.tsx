@@ -3,8 +3,9 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { NavLink, NavLinkRenderProps } from "react-router-dom";
+import { Link, NavLink, NavLinkRenderProps } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ROOT_PATHS } from "@/routes/root-layout/root.enums";
 const NavMenu: React.FC = () => {
   const { t } = useTranslation();
   const handleActiveLink = ({ isActive }: NavLinkRenderProps) => {
@@ -14,17 +15,17 @@ const NavMenu: React.FC = () => {
     <NavigationMenu className="hidden lg:flex space-x-4">
       <NavigationMenuList className="flex items-center px-4 py-2 space-x-4">
         <NavigationMenuItem>
-          <NavLink className={handleActiveLink} to="/">
+          <Link to={ROOT_PATHS.HOME}>
             {t("home")}
-          </NavLink>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavLink className={handleActiveLink} to="write">
+          <NavLink className={handleActiveLink} to={`${ROOT_PATHS.USER}/${ROOT_PATHS.WRITE}`}>
             {t("write")}
           </NavLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavLink className={handleActiveLink} to="about">
+          <NavLink className={handleActiveLink} to={ROOT_PATHS.ABOUT}>
             {t("about")}
           </NavLink>
         </NavigationMenuItem>

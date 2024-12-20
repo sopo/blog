@@ -14,7 +14,7 @@ const FeatureCards: React.FC<PropsWithChildren<FeatureCardsProps>> = ({
       <div className="col-span-full">{children}</div>
       {content.map((card) => {
         return (
-          <Card>
+          <Card key={card.title}>
             <CardHeader>
               <CardTitle className="text-primary">{card.icon}</CardTitle>
             </CardHeader>

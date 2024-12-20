@@ -8,6 +8,7 @@ import {
 import Avatar from "@/pages/profile/avatar";
 import Logout from "./logout";
 import { Link } from "react-router-dom";
+import { ROOT_PATHS } from "@/routes/root-layout/root.enums";
 interface UserProps {
   avatar_url?: string | null;
 }
@@ -20,7 +21,7 @@ const User: React.FC<UserProps> = ({ avatar_url }) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col w-80">
         <DropdownMenuSeparator />
-        <Link to="profile">
+        <Link to={`${ROOT_PATHS.USER}/${ROOT_PATHS.PROFILE}`}>
           <DropdownMenuItem>My profile</DropdownMenuItem>
         </Link>
         <Logout />
