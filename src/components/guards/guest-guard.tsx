@@ -7,7 +7,9 @@ const GuestGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const { lang } = useParams();
   const user = useAtomValue(UserAtom);
   if (!user) {
-    return <Navigate to={`/${lang}/${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_IN}`} />;
+    return (
+      <Navigate to={`/${lang}/${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_IN}`} />
+    );
   }
   return <>{children || <Outlet />}</>;
 };

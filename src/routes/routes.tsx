@@ -27,9 +27,7 @@ export const routes = [
             <AuthLayout />
           </LoggedInGuard>
         ),
-        children: [
-            ...AUTH_ROUTES
-        ]
+        children: [...AUTH_ROUTES],
       },
 
       {
@@ -38,10 +36,8 @@ export const routes = [
           <GuestGuard>
             <UserLayout />
           </GuestGuard>
-        ), children: [
-            ...USER_ROUTES,
-
-        ]
+        ),
+        children: [...USER_ROUTES],
       },
     ],
   },

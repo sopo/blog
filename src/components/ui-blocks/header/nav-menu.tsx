@@ -15,12 +15,13 @@ const NavMenu: React.FC = () => {
     <NavigationMenu className="hidden lg:flex space-x-4">
       <NavigationMenuList className="flex items-center px-4 py-2 space-x-4">
         <NavigationMenuItem>
-          <Link to={ROOT_PATHS.HOME}>
-            {t("home")}
-          </Link>
+          <Link to={ROOT_PATHS.HOME}>{t("home")}</Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavLink className={handleActiveLink} to={`${ROOT_PATHS.USER}/${ROOT_PATHS.WRITE}`}>
+          <NavLink
+            className={handleActiveLink}
+            to={`${ROOT_PATHS.USER}/${ROOT_PATHS.WRITE}`}
+          >
             {t("write")}
           </NavLink>
         </NavigationMenuItem>

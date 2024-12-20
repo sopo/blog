@@ -1,1 +1,1 @@
-export const Fallback = <div>Loading...</div>
+export const Fallback = <div>Loading...</div>;
