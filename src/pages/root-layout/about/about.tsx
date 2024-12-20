@@ -1,9 +1,9 @@
 import ScreenLg from "@/components/containers/page-containers/screen-lg";
-import JoinUsSection from "./join-us-section";
-import OurStorySection from "./our-story";
-import OurMissionSection from "./our-mission-section";
-import AboutUsSection from "./about-us-section";
-import WhatWeOffer from "./what-we-offer";
+import JoinUsSection from "./components/join-us-section";
+import OurStorySection from "./components/our-story";
+import OurMissionSection from "./components/our-mission-section";
+import AboutUsSection from "./components/about-us-section";
+import WhatWeOffer from "./components/what-we-offer";
 const About: React.FC = () => {
   return (
     <div>

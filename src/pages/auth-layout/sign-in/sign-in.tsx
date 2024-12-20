@@ -6,7 +6,6 @@ import { Trans, useTranslation } from "react-i18next";
 import LabeledInputContainer from "@/components/containers/form-element-containers/labeled-input-container";
 import FormContainer from "@/components/containers/form-element-containers/form-container";
 import { useMutation } from "@tanstack/react-query";
-import { login } from "../supabase/auth";
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import AuthSection from "@/components/containers/section-containers/auth-section";
 import { useForm } from "react-hook-form";
@@ -17,6 +16,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { login } from "@/supabase/auth";
+import { AUTH_PATHS } from "../auth.enums";
+
 type FormFields = {
   email: string;
   password: string;
@@ -120,7 +122,7 @@ export default function SignIn() {
           <p className="paragraph-small-secondary">
             {`${t("logIn.accountQuestion")} `}
             <Link
-              to={`/${lang}/sign-up`}
+              to={`/${lang}/${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_UP}`}
               className="text-primary hover:underline"
             >
               <Trans>logIn.signUp</Trans>

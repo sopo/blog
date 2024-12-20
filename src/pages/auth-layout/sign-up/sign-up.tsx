@@ -1,12 +1,6 @@
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Label } from "../components/ui/label";
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import LabeledInputContainer from "../components/containers/form-element-containers/labeled-input-container";
-import FormContainer from "../components/containers/form-element-containers/form-container";
 import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "../supabase/auth";
 import { useForm } from "react-hook-form";
 import {
   Card,
@@ -16,6 +10,14 @@ import {
 } from "@/components/ui/card";
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import AuthSection from "@/components/containers/section-containers/auth-section";
+import { registerUser } from "@/supabase/auth";
+import FormContainer from "@/components/containers/form-element-containers/form-container";
+import LabeledInputContainer from "@/components/containers/form-element-containers/labeled-input-container";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { AUTH_PATHS } from "../auth.enums";
+
 type FormFields = {
   email: string;
   password: string;
@@ -102,7 +104,7 @@ export default function SignUp() {
           <p className="paragraph-small-secondary">
             {t("signUp.accountQuestion")}
             <Link
-              to={`/${lang}/sign-in`}
+              to={`/${lang}/${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_IN}`}
               className="text-primary hover:underline"
             >
               {t("signUp.signIn")}
