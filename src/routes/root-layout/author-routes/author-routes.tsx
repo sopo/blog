@@ -5,7 +5,7 @@ import Author from "@/pages/author/author";
 
 export const AUTHOR_ROUTES = [
   {
-    PATH: ROOT_PATHS.AUTHOR + "/:id",
+    path: ROOT_PATHS.AUTHOR + "/:id",
     element: (
       <Suspense fallback={Fallback}>
         <Author />
