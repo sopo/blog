@@ -1,6 +1,6 @@
 import { QUERY_KEYS } from "./enums";
 import { ArticleProps } from "@/interfaces/types";
-import { fetchArticles } from "@/supabase/fetch/fetch-articles";
+import { fetchArticles } from "@/api/fetch-articles";
 import { UseQueryResult, useQuery } from "react-query";
 
 const useGetArticles = <T = ArticleProps[]>({

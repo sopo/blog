@@ -35,10 +35,6 @@ export default function SignUp() {
   const { lang } = useParams();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  // const { mutate: handleRegister } = useMutation({
-  //   mutationKey: ["register"],
-  //   mutationFn: registerUser,
-  // });
   const { mutate: handleRegister } = useRegister(() => {
     navigate(`/${lang}`);
   });

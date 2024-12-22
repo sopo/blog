@@ -36,16 +36,6 @@ export default function SignIn() {
   const { t } = useTranslation();
   const { lang } = useParams();
   const navigate = useNavigate();
-  // const { mutate: handleLogin } = useMutation({
-  //   mutationKey: ["login"],
-  //   mutationFn: login,
-  //   onSuccess: () => {
-  //     navigate(`/${lang}`);
-  //   },
-  //   onError: (error) => {
-  //     console.error("Login failed", error);
-  //   },
-  // });
   const { mutate: handleLogin } = useSignIn(() => {
     navigate("/");
   });
