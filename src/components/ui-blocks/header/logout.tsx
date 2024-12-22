@@ -1,12 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { logout } from "@/supabase/auth";
-import { useMutation } from "react-query";
+import { useLogOut } from "@/hooks/use-logout";
 const Logout: React.FC = () => {
-  const { mutate: handleLogout } = useMutation({
-    mutationKey: ["logout"],
-    mutationFn: logout,
-  });
-
+  const { mutate: handleLogout } = useLogOut()
   return (
     <Button
       variant={"secondary"}

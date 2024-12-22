@@ -1,5 +1,5 @@
 import { AuthProps } from "@/utils/interfaces/interfaces";
-import { supabase } from "../index";
+import { supabase } from "../supabase/index";
 
 export const registerUser = ({ email, password }: AuthProps) => {
   return supabase.auth.signUp({ email, password });

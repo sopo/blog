@@ -1,4 +1,4 @@
-import { login } from "@/supabase/auth";
+import { login } from "@/api/auth";
 import { useMutation } from "react-query";
 
 const useSignIn = (onSuccess: () => void) => {
