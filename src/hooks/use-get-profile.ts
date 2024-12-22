@@ -14,7 +14,7 @@ const useGetProfile = ({
     queryKey: [QUERY_KEYS.USER_PROFILE, id],
     queryFn: () => getUserProfile(id),
     onSuccess,
-    enabled:!!id
+    enabled: !!id,
   });
 };
 

@@ -46,20 +46,20 @@ const EditProfile: React.FC = () => {
   });
   const userId = user ? user.user.id : "";
 
-useGetProfile({
-  id: userId,
-  onSuccess: (data) => {
-    setData({
-              full_name_ka: data.full_name_ka || "Georgian name",
-              full_name_en: data.full_name_en || "english name",
-              avatar_url: data.avatar_url || "www.example.com",
-              phone_number: data.phone_number || "+00 00 00 00",
-            });
-            setProfile({
-              ...data,
-            });
-  }
-})
+  useGetProfile({
+    id: userId,
+    onSuccess: (data) => {
+      setData({
+        full_name_ka: data.full_name_ka || "Georgian name",
+        full_name_en: data.full_name_en || "english name",
+        avatar_url: data.avatar_url || "www.example.com",
+        phone_number: data.phone_number || "+00 00 00 00",
+      });
+      setProfile({
+        ...data,
+      });
+    },
+  });
   const { mutate: handleChangeData } = useMutation({
     mutationFn: editProfile,
   });
