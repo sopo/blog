@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
-import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
@@ -15,6 +14,7 @@ import { supabase } from "@/supabase";
 import { useForm } from "react-hook-form";
 
 import { useTranslation } from "react-i18next";
+import { useMutation } from "react-query";
 type FormFields = {
   id: string;
   full_name_ka: string;
@@ -69,7 +69,7 @@ const EditProfile: React.FC = () => {
       }
     };
     fetchUser();
-  }, []);
+  }, [setProfile, user]);
 
   const { mutate: handleChangeData } = useMutation({
     mutationKey: ["user-personal-info"],

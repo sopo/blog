@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { useMutation } from "@tanstack/react-query";
 import { logout } from "@/supabase/auth";
 import { UserAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { useEffect } from "react";
+import { useMutation } from "react-query";
 const Logout: React.FC = () => {
   const user = useAtomValue(UserAtom);
   const { mutate: handleLogout } = useMutation({

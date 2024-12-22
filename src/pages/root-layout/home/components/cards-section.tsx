@@ -7,14 +7,14 @@ import {
 } from "@/components/ui/card";
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Articles } from "@/utils/interfaces/types";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ka";
 import "dayjs/locale/en";
+import { ArticleProps } from "@/interfaces/types";
 
-const CardsSection: React.FC<{ articles: Articles }> = ({ articles }) => {
+const CardsSection: React.FC<{ articles: ArticleProps[] }> = ({ articles }) => {
   const { t } = useTranslation();
   const { lang } = useParams();
   dayjs.extend(relativeTime);

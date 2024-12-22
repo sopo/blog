@@ -5,18 +5,26 @@ import { supabase } from "./supabase";
 import { useAtomValue, useSetAtom } from "jotai";
 import { UserAtom, ProfileAtom } from "./store/auth";
 import { router } from "./routes/routes";
+import useGetUserSession from "./hooks/use-get-session";
+import useGetProfile from "./hooks/use-get-profile";
 
 function App() {
   const setUser = useSetAtom(UserAtom);
   const user = useAtomValue(UserAtom);
   const setProfile = useSetAtom(ProfileAtom);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+  // useEffect(() => {
+  //   supabase.auth.getSession().then(({ data: { session } }) => {
+  //     setUser(session);
+  //     setLoading(false);
+  //   });
+  useGetUserSession((session) => {
+    if (session) {
       setUser(session);
       setLoading(false);
-    });
-
+    }
+  });
+  useEffect(() => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -26,30 +34,31 @@ function App() {
     return () => subscription.unsubscribe();
   }, [setUser]);
 
-  useEffect(() => {
-    const userId = user?.user.id;
+  const userId = user?.user.id || "";
+  useGetProfile({ id: userId, onSuccess: (data) => setProfile(data) });
 
-    const fetchUser = async () => {
-      if (!userId) {
-        return;
-      }
+  // useEffect(() => {
+  //   const userId = user?.user.id;
 
-      try {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select()
-          .eq("id", userId)
-          .single();
+  //   const fetchUser = async () => {
+  //     if (!userId) {
+  //       return;
+  //     }
+  //     try {
+  //       const { data, error } = await supabase
+  //         .from("profiles")
+  //         .select()
+  //         .eq("id", userId)
+  //         .single();
 
-        if (error) throw error;
-        setProfile(data);
-      } catch {
-        console.error("Error fetching profile");
-      }
-    };
+  //       if (error) throw error;
+  //       setProfile(data);
+  //     } catch {
+  //       console.error("Error fetching profile");
+  //     }
+  //   };
 
-    fetchUser();
-  }, [user, setProfile]);
+  // }, [user, setProfile]);
 
   if (loading) {
     return <div>Loading...</div>;

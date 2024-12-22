@@ -2,10 +2,9 @@ import CardsSection from "./components/cards-section";
 import CardsAside from "./components/cards-aside";
 import Screen2Xl from "@/components/containers/page-containers/screen-2xl";
 import ContainerGridCol3 from "@/components/containers/grid/container-grid-c-3";
-import { fetchArticles } from "@/supabase/fetch/fetch-articles";
-import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import qs from "qs";
+import useGetArticles from "@/hooks/use-get-articles";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
@@ -21,10 +20,12 @@ export default function Home() {
     isLoading,
     isError,
     error,
-  } = useQuery({
-    queryKey: ["articles", searchQuery],
-    queryFn: () => fetchArticles({ search: searchQuery }),
-  });
+  } = useGetArticles({ searchQuery });
+
+  // useQuery({
+  //   queryKey: ["articles", searchQuery],
+  //   queryFn: () => fetchArticles({ search: searchQuery }),
+  // });
   if (isLoading) {
     return <div>Loading...</div>;
   }

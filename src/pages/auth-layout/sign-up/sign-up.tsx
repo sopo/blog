@@ -1,6 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import {
   Card,
@@ -10,13 +9,13 @@ import {
 } from "@/components/ui/card";
 import TextCenterSmallBlock from "@/components/ui-blocks/text-blocks/text-center-small-block";
 import AuthSection from "@/components/containers/section-containers/auth-section";
-import { registerUser } from "@/supabase/auth";
 import FormContainer from "@/components/containers/form-element-containers/form-container";
 import LabeledInputContainer from "@/components/containers/form-element-containers/labeled-input-container";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AUTH_PATHS } from "../auth.enums";
+import useRegister from "@/hooks/use-register";
 
 type FormFields = {
   email: string;
@@ -35,9 +34,13 @@ export default function SignUp() {
   });
   const { lang } = useParams();
   const { t } = useTranslation();
-  const { mutate: handleRegister } = useMutation({
-    mutationKey: ["register"],
-    mutationFn: registerUser,
+  const navigate = useNavigate();
+  // const { mutate: handleRegister } = useMutation({
+  //   mutationKey: ["register"],
+  //   mutationFn: registerUser,
+  // });
+  const { mutate: handleRegister } = useRegister(() => {
+    navigate(`/${lang}`);
   });
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const email = register("email", {
