@@ -1,8 +1,8 @@
-import { logout } from "@/api/auth"
-import { useMutation } from "react-query"
+import { logout } from "@/api/auth";
+import { useMutation } from "react-query";
 
 export const useLogOut = () => {
-    return useMutation({
-        mutationFn: logout
-    })
-}
+  return useMutation({
+    mutationFn: logout,
+  });
+};

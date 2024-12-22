@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useLogOut } from "@/hooks/use-logout";
 const Logout: React.FC = () => {
-  const { mutate: handleLogout } = useLogOut()
+  const { mutate: handleLogout } = useLogOut();
   return (
     <Button
       variant={"secondary"}
