@@ -60,7 +60,7 @@ const EditProfile: React.FC = () => {
     },
   });
 
-  const { mutate: handleChangeData } = useEditProfile()
+  const { mutate: handleChangeData } = useEditProfile();
 
   const full_name_ka = register("full_name_ka", {
     maxLength: {
