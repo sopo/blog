@@ -3,7 +3,7 @@ import { getUserProfile } from "@/api/get-profile";
 import { Profile } from "@/interfaces/types";
 import { useQuery } from "react-query";
 
-const useGetProfile =({
+const useGetProfile = ({
   id,
   onSuccess,
 }: {
