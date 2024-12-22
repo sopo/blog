@@ -6,15 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import { editProfile } from "@/supabase/edit-profile";
-import { supabase } from "@/supabase";
 import { useForm } from "react-hook-form";
-
 import { useTranslation } from "react-i18next";
 import { useMutation } from "react-query";
+import useGetProfile from "@/hooks/use-get-profile";
 type FormFields = {
   id: string;
   full_name_ka: string;
@@ -45,34 +44,23 @@ const EditProfile: React.FC = () => {
     avatar_url: "",
     phone_number: "",
   });
-  useEffect(() => {
-    const userId = user ? user.user.id : "";
-    const fetchUser = async () => {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select()
-        .eq("id", userId)
-        .single();
-      if (error) {
-        console.log(error.message);
-      }
-      if (data) {
-        setData({
-          full_name_ka: data.full_name_ka || "Georgian name",
-          full_name_en: data.full_name_en || "english name",
-          avatar_url: data.avatar_url || "www.example.com",
-          phone_number: data.phone_number || "+00 00 00 00",
-        });
-        setProfile({
-          ...data,
-        });
-      }
-    };
-    fetchUser();
-  }, [setProfile, user]);
+  const userId = user ? user.user.id : "";
 
+useGetProfile({
+  id: userId,
+  onSuccess: (data) => {
+    setData({
+              full_name_ka: data.full_name_ka || "Georgian name",
+              full_name_en: data.full_name_en || "english name",
+              avatar_url: data.avatar_url || "www.example.com",
+              phone_number: data.phone_number || "+00 00 00 00",
+            });
+            setProfile({
+              ...data,
+            });
+  }
+})
   const { mutate: handleChangeData } = useMutation({
-    mutationKey: ["user-personal-info"],
     mutationFn: editProfile,
   });
 

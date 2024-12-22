@@ -22,17 +22,12 @@ export default function Home() {
     error,
   } = useGetArticles({ searchQuery });
 
-  // useQuery({
-  //   queryKey: ["articles", searchQuery],
-  //   queryFn: () => fetchArticles({ search: searchQuery }),
-  // });
   if (isLoading) {
     return <div>Loading...</div>;
   }
   if (isError) {
     return <div>Error: {error instanceof Error ? error.message : "Error"}</div>;
   }
-  console.log("search", searchParams);
 
   return (
     <Screen2Xl>
