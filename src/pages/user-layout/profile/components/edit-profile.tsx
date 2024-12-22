@@ -9,11 +9,10 @@ import { Label } from "@radix-ui/react-dropdown-menu";
 import { useState } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
-import { editProfile } from "@/supabase/edit-profile";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useMutation } from "react-query";
 import useGetProfile from "@/hooks/use-get-profile";
+import { useEditProfile } from "@/hooks/use-edit-profile";
 type FormFields = {
   id: string;
   full_name_ka: string;
@@ -60,9 +59,8 @@ const EditProfile: React.FC = () => {
       });
     },
   });
-  const { mutate: handleChangeData } = useMutation({
-    mutationFn: editProfile,
-  });
+
+  const { mutate: handleChangeData } = useEditProfile()
 
   const full_name_ka = register("full_name_ka", {
     maxLength: {
