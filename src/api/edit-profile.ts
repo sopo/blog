@@ -1,5 +1,5 @@
-import { supabase } from ".";
-import { Database } from "./database.types";
+import { supabase } from "../supabase";
+import { Database } from "../supabase/database.types";
 export const editProfile = async (
   data: Database["public"]["Tables"]["profiles"]["Insert"],
 ) => {

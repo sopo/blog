@@ -1,4 +1,4 @@
-import { registerUser } from "@/supabase/auth";
+import { registerUser } from "@/api/auth";
 import { useMutation } from "react-query";
 
 const useRegister = (onSuccess: () => void) => {

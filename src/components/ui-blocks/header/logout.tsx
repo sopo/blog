@@ -1,19 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { logout } from "@/supabase/auth";
-import { UserAtom } from "@/store/auth";
-import { useAtomValue } from "jotai";
-import { useEffect } from "react";
-import { useMutation } from "react-query";
+import { useLogOut } from "@/hooks/use-logout";
 const Logout: React.FC = () => {
-  const user = useAtomValue(UserAtom);
-  const { mutate: handleLogout } = useMutation({
-    mutationKey: ["logout"],
-    mutationFn: logout,
-  });
-  useEffect(() => {
-    console.log("user", user);
-  }, [user]);
-
+  const { mutate: handleLogout } = useLogOut();
   return (
     <Button
       variant={"secondary"}
